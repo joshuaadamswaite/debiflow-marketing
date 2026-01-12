@@ -4,97 +4,451 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>DebiFlow</title>
-  <meta name="description" content="DebiFlow helps investors and originators manage receivables financing with clarity, controls, and reporting." />
+  <meta name="description" content="DebiFlow runs the security sharing and fund management layer that bridges daily portfolio movement with monthly or quarterly settlement." />
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
-  <header class="header">
-    <div class="container header-inner">
-      <a class="brand" href="/">
-        <img class="logo" src="assets/logo.png" alt="DebiFlow" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';" />
-        <span class="brand-text" style="display:none;">DebiFlow</span>
+  <header class="topbar" id="top">
+    <div class="container topbar-inner">
+      <a class="brand" href="#top" aria-label="DebiFlow Home">
+        <img class="brand-logo" src="assets/logo_white.png" alt="DebiFlow" onerror="this.src='assets/logo.png';" />
       </a>
 
-      <nav class="nav">
-        <a class="nav-link" href="mailto:info@debiflow.com">Email us</a>
-        <a class="btn btn-primary" href="https://debiflow7-757013332927.africa-south1.run.app/login?next=/">Log in</a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="nav-link" href="#product">Product</a>
+        <a class="nav-link" href="#how">How it works</a>
+        <a class="nav-link" href="#controls">Controls</a>
+        <a class="nav-link" href="#technology">Technology</a>
+        <a class="nav-link" href="#traction">Traction</a>
+        <a class="nav-link" href="#contact">Contact</a>
+
+        <div class="nav-actions">
+          <a class="btn btn-ghost" href="mailto:info@debiflow.com?subject=DebiFlow%20enquiry">Request a demo</a>
+          <a class="btn btn-primary" href="https://debiflow7-757013332927.africa-south1.run.app/login?next=/">Log in</a>
+        </div>
       </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="mobile-nav" id="mobileNav" hidden>
+      <div class="mobile-nav-inner container">
+        <a class="mobile-link" href="#product">Product</a>
+        <a class="mobile-link" href="#how">How it works</a>
+        <a class="mobile-link" href="#controls">Controls</a>
+        <a class="mobile-link" href="#technology">Technology</a>
+        <a class="mobile-link" href="#traction">Traction</a>
+        <a class="mobile-link" href="#contact">Contact</a>
+        <div class="mobile-actions">
+          <a class="btn btn-ghost w-full" href="mailto:info@debiflow.com?subject=DebiFlow%20enquiry">Request a demo</a>
+          <a class="btn btn-primary w-full" href="https://debiflow7-757013332927.africa-south1.run.app/login?next=/">Log in</a>
+        </div>
+      </div>
     </div>
   </header>
 
   <main>
+    <!-- HERO -->
     <section class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+
       <div class="container hero-inner">
         <div class="hero-copy">
-          <h1>Receivables finance reporting, made simple.</h1>
+          <div class="eyebrow">Receivable-only collateral • Security sharing • Fund management</div>
+          <h1>Receivables can be investable when the structure, limits, and reporting are real.</h1>
+
           <p class="subhead">
-            DebiFlow gives originators and investors a clear view of cashflows, allocations, and portfolio performance.
-            Built for fast weekly cycles, auditability, and decision-grade reporting.
+            DebiFlow matches investors to early-stage credit issuers, then runs the security sharing and fund management layer
+            that bridges daily portfolio movement with monthly or quarterly settlement.
           </p>
 
           <div class="hero-cta">
-            <a class="btn btn-primary" href="mailto:info@debiflow.com?subject=DebiFlow%20enquiry">Request a demo</a>
-            <a class="btn btn-ghost" href="https://debiflow7-757013332927.africa-south1.run.app/login?next=/">Log in</a>
+            <a class="btn btn-primary" href="mailto:info@debiflow.com?subject=DebiFlow%20demo%20request">Request a demo</a>
+            <a class="btn btn-outline" href="#how">See how it works</a>
           </div>
 
-          <div class="meta">
-            <span class="pill">Originators</span>
-            <span class="pill">Investors</span>
-            <span class="pill">Weekly reporting</span>
-            <span class="pill">Portfolio analytics</span>
+          <div class="pill-row" aria-label="Highlights">
+            <span class="pill">Audit-ready outputs</span>
+            <span class="pill">Rules-based limits</span>
+            <span class="pill">Covenants and early triggers</span>
+            <span class="pill">Weekly reporting cadence</span>
           </div>
         </div>
 
-        <div class="hero-card" aria-hidden="true">
-          <div class="card">
-            <div class="card-title">What you get</div>
-            <ul class="card-list">
-              <li>Automated weekly updates from source files</li>
-              <li>Allocations and cashflow summaries</li>
-              <li>PAR / aging views and performance tracking</li>
-              <li>Clear audit trail and exportable outputs</li>
+        <div class="hero-panel" aria-hidden="true">
+          <div class="panel-card">
+            <div class="panel-title">What you get</div>
+            <ul class="panel-list">
+              <li>Clean security sharing across multiple investors</li>
+              <li>Drawdowns and settlements aligned to facility terms</li>
+              <li>Payment allocation, repurchases, and covenant monitoring</li>
+              <li>Repeatable outputs from versioned inputs</li>
             </ul>
-            <div class="card-foot">
+            <div class="panel-foot">
               <a class="small-link" href="mailto:info@debiflow.com">info@debiflow.com</a>
               <span class="dot">•</span>
               <a class="small-link" href="https://debiflow7-757013332927.africa-south1.run.app/login?next=/">Log in</a>
+            </div>
+          </div>
+
+          <div class="panel-card subtle">
+            <div class="mini-metrics">
+              <div class="metric">
+                <div class="metric-label">Total payments processed</div>
+                <div class="metric-value">ZAR 81.8m</div>
+              </div>
+              <div class="metric">
+                <div class="metric-label">Contracts refinanced</div>
+                <div class="metric-value">&gt;100k</div>
+              </div>
+              <div class="metric">
+                <div class="metric-label">Currently outstanding</div>
+                <div class="metric-value">ZAR 11.8m</div>
+              </div>
+              <div class="metric">
+                <div class="metric-label">Failed payments</div>
+                <div class="metric-value">0.83%</div>
+              </div>
+            </div>
+            <div class="mini-note">Figures shown for social proof only. Full detail is available on request.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCT -->
+    <section class="section" id="product">
+      <div class="container">
+        <div class="section-head">
+          <h2>Built for the cadence investors require and originators need.</h2>
+          <p class="section-sub">
+            Early-stage credit issuers are asset-light. Investors need control, cadence, and proof. DebiFlow makes that possible
+            without turning operations into a spreadsheet factory.
+          </p>
+        </div>
+
+        <div class="triple">
+          <div class="box">
+            <div class="box-top">
+              <div class="tag tag-gold">Originators</div>
+              <h3>Scale receivables faster</h3>
+            </div>
+            <ul class="checklist">
+              <li>Daily or weekly drawdowns to keep lending</li>
+              <li>Predictable, rules-based limits</li>
+              <li>Less operational burden across facilities</li>
+            </ul>
+          </div>
+
+          <div class="box box-emphasis">
+            <div class="box-top">
+              <div class="tag tag-teal">DebiFlow layer</div>
+              <h3>Structure and control</h3>
+            </div>
+            <ul class="checklist">
+              <li>Allocates receivables for clean security sharing</li>
+              <li>Manages drawdowns vs settlement cadence</li>
+              <li>Enforces limits, covenants, and early triggers</li>
+              <li>Produces audit-ready statements and reconciliations</li>
+            </ul>
+          </div>
+
+          <div class="box">
+            <div class="box-top">
+              <div class="tag tag-blue">Investors</div>
+              <h3>Mandate-fit exposure</h3>
+            </div>
+            <ul class="checklist">
+              <li>Exposure controls and covenant monitoring</li>
+              <li>Monthly, quarterly, or fixed-term settlement</li>
+              <li>Consistent, traceable reporting</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="reality">
+          <div class="reality-title">Reality today</div>
+          <div class="reality-grid">
+            <div class="reality-item">Security cannot be shared cleanly across multiple investors.</div>
+            <div class="reality-item">Data lives in spreadsheets with manual reconciliations.</div>
+            <div class="reality-item">Statements are slow, inconsistent, and hard to audit.</div>
+            <div class="reality-item">Cadence mismatches create disputes and funding gaps.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section alt" id="how">
+      <div class="container">
+        <div class="section-head">
+          <h2>How it works</h2>
+          <p class="section-sub">
+            A simple, repeatable workflow that turns customer data into investable assets, then bridges settlement cadences with
+            controls.
+          </p>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="icon i-blue" aria-hidden="true"></div>
+            <div>
+              <div class="step-title">1) Data intake</div>
+              <div class="step-text">Validate schema, formats, and required fields on arrival.</div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="icon i-teal" aria-hidden="true"></div>
+            <div>
+              <div class="step-title">2) Investor allocation</div>
+              <div class="step-text">Allocate receivables across investor portfolios for security sharing.</div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="icon i-green" aria-hidden="true"></div>
+            <div>
+              <div class="step-title">3) Payment in</div>
+              <div class="step-text">Determine disbursement amounts per investor based on allocated accounts.</div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="icon i-gold" aria-hidden="true"></div>
+            <div>
+              <div class="step-title">4) Repayments upload</div>
+              <div class="step-text">Upload historic repayment data for allocated receivables.</div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="icon i-red" aria-hidden="true"></div>
+            <div>
+              <div class="step-title">5) Payment allocation and repurchases</div>
+              <div class="step-text">Map each payment to receivables, apply repurchases, and set interest allocation dates.</div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="icon i-navy" aria-hidden="true"></div>
+            <div>
+              <div class="step-title">6) Payment out</div>
+              <div class="step-text">Bridge settlement cadence with limits based on expected payments and defined covenants.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="diagram">
+          <div class="diagram-card">
+            <div class="diagram-kicker">Fund management layer</div>
+            <div class="diagram-title">Drawdowns and repayments stay inside agreed limits.</div>
+
+            <div class="diagram-grid">
+              <div class="diagram-box">
+                <div class="diagram-label">Investee collections account</div>
+                <div class="diagram-muted">Periodic disbursement and repayments</div>
+              </div>
+
+              <div class="diagram-arrow" aria-hidden="true"></div>
+
+              <div class="diagram-box">
+                <div class="diagram-label">DebiFlow float account</div>
+                <div class="diagram-muted">Periodic disbursement and repayments</div>
+              </div>
+
+              <div class="diagram-arrow" aria-hidden="true"></div>
+
+              <div class="diagram-box">
+                <div class="diagram-label">Investors</div>
+                <div class="diagram-muted">Monthly or termly drawdown and repayment requests</div>
+              </div>
+            </div>
+
+            <div class="diagram-foot">
+              <div class="note">
+                Whether a drawdown or repayment notice is triggered depends on facility balance, requested drawdown, and customer repayments and repurchases for the period.
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <!-- CONTROLS -->
+    <section class="section" id="controls">
       <div class="container">
-        <h2>Built for operational reality</h2>
-        <div class="grid">
-          <div class="feature">
-            <h3>Fast reporting cycles</h3>
-            <p>Designed around weekly file loads and repeatable outputs with minimal friction.</p>
+        <div class="section-head">
+          <h2>Protections and enforceable controls</h2>
+          <p class="section-sub">
+            Funded on existing receivables, protected by limits and repurchases, supported by early-warning oversight and enforceable security.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-cap">
+              <div class="tag tag-teal">Funding and collateral</div>
+            </div>
+            <ul class="card-list">
+              <li>Finance only verified, already issued receivables</li>
+              <li>Limit the funded share of the portfolio</li>
+              <li>Advance rates preserve headroom for interest and repurchases</li>
+              <li>Growth limits aligned to forward capital requirements</li>
+            </ul>
           </div>
-          <div class="feature">
-            <h3>Controls and visibility</h3>
-            <p>Consistent definitions, clean audit trails, and clear portfolio views across stakeholders.</p>
+
+          <div class="card">
+            <div class="card-cap">
+              <div class="tag tag-blue">Risk limits and repurchases</div>
+            </div>
+            <ul class="card-list">
+              <li>Covenants for risk, ageing, and concentration</li>
+              <li>Repurchase controls keep key metrics within thresholds</li>
+              <li>Receivables repurchased before a defined DPD ceiling</li>
+            </ul>
           </div>
-          <div class="feature">
-            <h3>Decision-grade outputs</h3>
-            <p>Cashflow summaries, allocations, aging and performance views you can use immediately.</p>
+
+          <div class="card">
+            <div class="card-cap">
+              <div class="tag tag-gold">Legal and oversight</div>
+            </div>
+            <ul class="card-list">
+              <li>Standardised documentation defines timing and waterfalls</li>
+              <li>Collections account pledge supports rapid enforcement</li>
+              <li>Ongoing visibility into performance and collections activity</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section alt">
-      <div class="container split">
-        <div>
-          <h2>Talk to us</h2>
-          <p>For a demo or onboarding, email us and we’ll respond with next steps.</p>
+    <!-- TECHNOLOGY -->
+    <section class="section alt" id="technology">
+      <div class="container">
+        <div class="section-head">
+          <h2>Technology overview</h2>
+          <p class="section-sub">
+            Cloud-native pipeline plus web app, with validations and traceability controls. Designed for reproducible results from versioned inputs.
+          </p>
         </div>
-        <div class="cta-box">
-          <div class="cta-title">Contact</div>
-          <a class="btn btn-primary" href="mailto:info@debiflow.com?subject=DebiFlow%20demo%20request">Email info@debiflow.com</a>
-          <div class="cta-note">Or log in if you already have access.</div>
-          <a class="btn btn-ghost" href="https://debiflow7-757013332927.africa-south1.run.app/login?next=/">Log in</a>
+
+        <div class="tech-grid">
+          <div class="tech">
+            <div class="tech-title">Data intake</div>
+            <div class="tech-text">Validates schema, aligns dates, checks integrity, and flags exceptions before processing continues.</div>
+          </div>
+
+          <div class="tech">
+            <div class="tech-title">Secure storage</div>
+            <div class="tech-text">Immutable history of uploads, outputs, and changes. Role-based permissions and segregation by entity or portfolio.</div>
+          </div>
+
+          <div class="tech">
+            <div class="tech-title">Compute</div>
+            <div class="tech-text">Python pipelines reconcile drawdowns, repayments, and allocations with traceable line items and exception logs.</div>
+          </div>
+
+          <div class="tech">
+            <div class="tech-title">Application</div>
+            <div class="tech-text">Role-based views for originators, investors, and administrators. Upload workflows, dashboards, exports, audit-friendly reporting.</div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="callout">
+            <div class="callout-title">Outputs</div>
+            <ul class="callout-list">
+              <li>Allocation registers and receivables schedules for security sharing</li>
+              <li>Investor statements aligned to settlement cadence and terms</li>
+              <li>Portfolio analytics (PAR, vintage, recoveries) and covenant monitoring</li>
+            </ul>
+          </div>
+
+          <div class="callout">
+            <div class="callout-title">Controls</div>
+            <ul class="callout-list">
+              <li>Automated checks, exception queues, and approval gates</li>
+              <li>Versioning and audit trail from intake through to outputs</li>
+              <li>Role-based access, traceable calculations, reproducible results</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRACTION -->
+    <section class="section" id="traction">
+      <div class="container">
+        <div class="section-head">
+          <h2>Traction</h2>
+          <p class="section-sub">
+            Our first receivable was financed in August 2023. The platform has processed meaningful volume with stable operational performance.
+          </p>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-label">Total payments processed</div>
+            <div class="stat-value">ZAR 81 777 489</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Contracts refinanced</div>
+            <div class="stat-value">106 899</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Currently outstanding</div>
+            <div class="stat-value">ZAR 11 765 814</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Investor repayments</div>
+            <div class="stat-value">ZAR 66 122 007</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Failed payments</div>
+            <div class="stat-value">0.83%</div>
+          </div>
+        </div>
+
+        <div class="banner">
+          <div class="banner-text">
+            Looking to speak with investors seeking secured receivable-backed exposure, originators with stable collections data, and partners for a pilot facility and reporting pack.
+          </div>
+          <div class="banner-actions">
+            <a class="btn btn-primary" href="mailto:info@debiflow.com?subject=DebiFlow%20pilot%20discussion">Talk to us</a>
+            <a class="btn btn-outline" href="https://debiflow7-757013332927.africa-south1.run.app/login?next=/">Log in</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section alt" id="contact">
+      <div class="container">
+        <div class="contact">
+          <div>
+            <h2>Contact</h2>
+            <p class="section-sub">
+              If you are an originator, investor, or partner and want to explore a facility structure and reporting pack, email us and we will respond with next steps.
+            </p>
+            <div class="contact-row">
+              <a class="btn btn-primary" href="mailto:info@debiflow.com?subject=DebiFlow%20enquiry">Email info@debiflow.com</a>
+              <a class="btn btn-ghost" href="https://debiflow7-757013332927.africa-south1.run.app/login?next=/">Log in</a>
+            </div>
+          </div>
+
+          <div class="contact-card" aria-hidden="true">
+            <div class="contact-card-title">Typical starting point</div>
+            <ol class="contact-list">
+              <li>Intro call and facility terms</li>
+              <li>Data sample and validation checks</li>
+              <li>Pilot reporting pack and statement format</li>
+              <li>Go live with a cadence that matches your operation</li>
+            </ol>
+          </div>
         </div>
       </div>
     </section>
@@ -102,15 +456,40 @@
 
   <footer class="footer">
     <div class="container footer-inner">
-      <div>© <span id="y"></span> DebiFlow</div>
-      <div class="footer-links">
-        <a href="mailto:info@debiflow.com">info@debiflow.com</a>
+      <div class="footer-left">
+        <div class="footer-brand">DebiFlow</div>
+        <div class="footer-muted">Receivables finance infrastructure.</div>
+      </div>
+
+      <div class="footer-right">
+        <a class="footer-link" href="mailto:info@debiflow.com">info@debiflow.com</a>
+        <span class="footer-dot">•</span>
+        <a class="footer-link" href="#top">Back to top</a>
       </div>
     </div>
   </footer>
 
   <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
+    // Mobile menu
+    const btn = document.getElementById("navToggle");
+    const panel = document.getElementById("mobileNav");
+
+    function closeMenu() {
+      btn.setAttribute("aria-expanded", "false");
+      panel.hidden = true;
+      document.body.classList.remove("no-scroll");
+    }
+
+    btn.addEventListener("click", () => {
+      const isOpen = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", String(!isOpen));
+      panel.hidden = isOpen;
+      document.body.classList.toggle("no-scroll", !isOpen);
+    });
+
+    document.querySelectorAll(".mobile-link").forEach(a => {
+      a.addEventListener("click", closeMenu);
+    });
   </script>
 </body>
 </html>
