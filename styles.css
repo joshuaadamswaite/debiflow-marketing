@@ -25,6 +25,8 @@
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
+/* Ensure anchor jumps don't hide content under the sticky header */
+:target { scroll-margin-top: 90px; }
 body{
   margin:0;
   font-family:var(--font);
@@ -73,7 +75,7 @@ p{margin:0}
   padding:14px 0;
 }
 .brand{display:flex; align-items:center; gap:12px; text-decoration:none}
-.brand-logo{height:28px; width:auto}
+.brand-logo{height:36px; width:auto}
 
 .nav{
   display:flex;
