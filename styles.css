@@ -77,12 +77,12 @@ p{margin:0}
 .brand{
   display:flex;
   align-items:center;
-  gap:16px;
+  gap:12px;
   text-decoration:none;
 }
 
 .brand-logo{
-  height:32px;
+  height:56px;
   width:auto;
   display:block;
   transform: scale(1.5);
