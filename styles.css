@@ -74,6 +74,7 @@ section[id]{
   height:42px;
   width:auto;
   display:block;
+  transform: scale(1.5);
   filter: drop-shadow(0 10px 16px rgba(0,0,0,0.25));
 }
 
@@ -687,7 +688,7 @@ section[id]{
 
 @media (max-width: 520px){
   .hero h1{font-size:1.85rem}
-  .brand-logo{height:38px}
+  .brand-logo{transform:scale(1.5);}
   .mini-metrics{grid-template-columns:1fr 1fr}
 }
  
