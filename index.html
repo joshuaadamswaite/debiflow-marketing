@@ -12,7 +12,13 @@
   <header class="topbar" id="top">
     <div class="container topbar-inner">
       <a class="brand" href="#top" aria-label="DebiFlow Home">
-        <img class="brand-logo" src="assets/logo_white.png" alt="DebiFlow" onerror="this.src='assets/logo.png';" />
+        <img
+          class="brand-logo"
+          src="assets/logo_white.svg"
+          alt="DebiFlow"
+          onerror="this.onerror=null; this.src='assets/logo_white.png';"
+        />
+
       </a>
 
       <nav class="nav" aria-label="Primary navigation">
@@ -20,16 +26,16 @@
         <a class="nav-link" href="#how">How it works</a>
         <a class="nav-link" href="#controls">Controls</a>
         <a class="nav-link" href="#technology">Technology</a>
-        <a class="nav-link" href="#cta">Contact</a>
+        <a class="nav-link" href="#next">Next steps</a>
+
+        <div class="nav-actions">
+          <a class="btn btn-primary" href="https://app.debiflow.com/login?next=/">Log in</a>
+        </div>
       </nav>
 
-      <div class="topbar-actions">
-        <a class="btn btn-primary topbar-login" href="https://app.debiflow.com/login?next=/">Log in</a>
-
-        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
 
     <div class="mobile-nav" id="mobileNav" hidden>
@@ -38,7 +44,10 @@
         <a class="mobile-link" href="#how">How it works</a>
         <a class="mobile-link" href="#controls">Controls</a>
         <a class="mobile-link" href="#technology">Technology</a>
-        <a class="mobile-link" href="#cta">Contact</a>
+        <a class="mobile-link" href="#next">Next steps</a>
+        <div class="mobile-actions">
+          <a class="btn btn-primary w-full" href="https://app.debiflow.com/login?next=/">Log in</a>
+        </div>
       </div>
     </div>
   </header>
@@ -49,17 +58,16 @@
       <div class="hero-bg" aria-hidden="true"></div>
 
       <div class="container hero-inner">
-        <div class="hero-copy">
+        <div class="hero-copy reveal">
           <div class="eyebrow">Receivable-only collateral • Security sharing • Fund management</div>
           <h1>Make receivables investable with real structure, limits, and reporting.</h1>
 
           <p class="subhead">
-            DebiFlow matches investors to early-stage credit issuers, then runs the security sharing and fund management layer
-            that bridges daily portfolio movement with monthly or quarterly settlement.
+            Upfront funding against already-issued receivables, with the tracking and controls investors require.
           </p>
 
           <div class="hero-cta">
-            <a class="btn btn-primary" href="#cta">Talk to us</a>
+            <a class="btn btn-primary" href="#next">Request a demo</a>
             <a class="btn btn-outline" href="#how">See how it works</a>
           </div>
 
@@ -72,7 +80,7 @@
         </div>
 
         <div class="hero-panel" aria-hidden="true">
-          <div class="panel-card">
+          <div class="panel-card reveal">
             <div class="panel-title">What you get</div>
             <ul class="panel-list">
               <li>Shared security across multiple investors</li>
@@ -82,12 +90,11 @@
             </ul>
           </div>
 
-          <div class="panel-card subtle">
+          <div class="panel-card subtle reveal">
             <div class="panel-title">Traction</div>
-
             <div class="mini-metrics">
               <div class="metric">
-                <div class="metric-label">Total payments processed</div>
+                <div class="metric-label">Payments processed</div>
                 <div class="metric-value">ZAR 81.8m</div>
               </div>
               <div class="metric">
@@ -103,7 +110,6 @@
                 <div class="metric-value">0.83%</div>
               </div>
             </div>
-
             <div class="mini-note">Our first receivable was financed in August 2023.</div>
           </div>
         </div>
@@ -113,14 +119,14 @@
     <!-- PRODUCT -->
     <section class="section" id="product">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head reveal">
           <h2>Built for investor cadence, without slowing originators down.</h2>
           <p class="section-sub">
-            Asset-light originators need fast funding. Investors need control and proof. DebiFlow delivers both without turning ops into spreadsheets.
+            Asset-light originators need fast funding. Investors need control and proof. DebiFlow delivers both.
           </p>
         </div>
 
-        <div class="triple">
+        <div class="triple reveal">
           <div class="box">
             <div class="box-top">
               <div class="tag tag-gold">Originators</div>
@@ -159,7 +165,7 @@
           </div>
         </div>
 
-        <div class="reality">
+        <div class="reality reveal">
           <div class="reality-title">Reality today</div>
           <div class="reality-grid">
             <div class="reality-item">Security cannot be shared cleanly across multiple investors.</div>
@@ -171,17 +177,89 @@
       </div>
     </section>
 
-    <!-- HOW IT WORKS -->
-    <section class="section alt" id="how">
+    <!-- SHOWCASE 1 (GRAPHIC BREAK) -->
+    <section class="section alt" id="showcase">
       <div class="container">
-        <div class="section-head">
+        <div class="showcase reveal">
+          <div class="showcase-card">
+            <div class="showcase-copy">
+              <div class="showcase-kicker">The operating layer</div>
+              <h2 class="showcase-title">From receivable to settlement, without spreadsheet ops.</h2>
+              <p class="showcase-sub">
+                Investors fund only what fits the rules. DebiFlow allocates, tracks collections, applies repurchases, and produces statements on cadence.
+              </p>
+
+              <div class="chip-row" role="tablist" aria-label="Showcase controls">
+                <button class="chip is-active" data-stage="allocate" type="button">Allocate</button>
+                <button class="chip" data-stage="track" type="button">Track</button>
+                <button class="chip" data-stage="settle" type="button">Settle</button>
+              </div>
+
+              <div class="showcase-points" aria-live="polite">
+                <div class="point is-active" data-stage="allocate">
+                  Clean security sharing across multiple investors, with mandate-fit allocation registers.
+                </div>
+                <div class="point" data-stage="track">
+                  Every repayment mapped to receivables, with exceptions flagged and audit-ready outputs.
+                </div>
+                <div class="point" data-stage="settle">
+                  Drawdowns and repayments bridged to monthly or quarterly settlement, inside covenants.
+                </div>
+              </div>
+            </div>
+
+            <div class="showcase-visual" aria-hidden="true">
+              <div class="viz-shell" data-stage="allocate">
+                <div class="viz-card">
+                  <div class="viz-pill">Investor portfolios</div>
+                  <div class="viz-grid">
+                    <div class="viz-tile t1"></div>
+                    <div class="viz-tile t2"></div>
+                    <div class="viz-tile t3"></div>
+                    <div class="viz-tile t4"></div>
+                  </div>
+                </div>
+
+                <div class="viz-card mid">
+                  <div class="viz-pill">DebiFlow layer</div>
+                  <div class="viz-flow">
+                    <span class="viz-dot d1"></span>
+                    <span class="viz-line"></span>
+                    <span class="viz-dot d2"></span>
+                    <span class="viz-line"></span>
+                    <span class="viz-dot d3"></span>
+                  </div>
+                </div>
+
+                <div class="viz-card">
+                  <div class="viz-pill">Receivables pool</div>
+                  <div class="viz-bars">
+                    <div class="bar b1"></div>
+                    <div class="bar b2"></div>
+                    <div class="bar b3"></div>
+                    <div class="bar b4"></div>
+                  </div>
+                </div>
+
+                <div class="viz-badge">Interactive</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section-head reveal">
           <h2>How it works</h2>
           <p class="section-sub">
             A repeatable workflow that turns portfolio data into investable exposure and keeps settlement inside agreed controls.
           </p>
         </div>
 
-        <div class="steps">
+        <div class="steps reveal">
           <div class="step">
             <div class="icon i-blue" aria-hidden="true"></div>
             <div>
@@ -231,7 +309,7 @@
           </div>
         </div>
 
-        <div class="diagram">
+        <div class="diagram reveal">
           <div class="diagram-card">
             <div class="diagram-kicker">Fund management layer</div>
             <div class="diagram-title">Drawdowns and repayments stay inside agreed limits.</div>
@@ -268,16 +346,16 @@
     </section>
 
     <!-- CONTROLS -->
-    <section class="section" id="controls">
+    <section class="section alt" id="controls">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head reveal">
           <h2>Protections and enforceable controls</h2>
           <p class="section-sub">
             Receivable-backed funding protected by limits, repurchases, early warnings, and enforceable security.
           </p>
         </div>
 
-        <div class="grid-3">
+        <div class="grid-3 reveal">
           <div class="card">
             <div class="card-cap">
               <div class="tag tag-teal">Funding and collateral</div>
@@ -316,16 +394,16 @@
     </section>
 
     <!-- TECHNOLOGY -->
-    <section class="section alt" id="technology">
+    <section class="section" id="technology">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head reveal">
           <h2>Technology overview</h2>
           <p class="section-sub">
             Cloud-native pipeline plus web app with validation, traceability, and reproducible outputs from versioned inputs.
           </p>
         </div>
 
-        <div class="tech-grid">
+        <div class="tech-grid reveal">
           <div class="tech">
             <div class="tech-title">Data intake</div>
             <div class="tech-text">Validates schema, aligns dates, checks integrity, flags exceptions.</div>
@@ -347,7 +425,7 @@
           </div>
         </div>
 
-        <div class="two-col">
+        <div class="two-col reveal">
           <div class="callout">
             <div class="callout-title">Outputs</div>
             <ul class="callout-list">
@@ -369,22 +447,72 @@
       </div>
     </section>
 
-    <!-- CTA (replaces traction + removes contact section entirely) -->
-    <section class="section" id="cta">
+    <!-- SHOWCASE 2 (GRAPHIC BREAK) -->
+    <section class="section alt" id="clarity">
       <div class="container">
-        <div class="banner">
+        <div class="showcase reveal">
+          <div class="showcase-card compact">
+            <div class="showcase-copy">
+              <div class="showcase-kicker">Clarity, not chaos</div>
+              <h2 class="showcase-title">Audit-friendly reporting, on the same cadence every time.</h2>
+              <p class="showcase-sub">
+                Clean inputs, versioned outputs, and a trail from allocation through to settlement.
+              </p>
+
+              <div class="chip-row" role="tablist" aria-label="Clarity controls">
+                <button class="chip is-active" data-stage="inputs" type="button">Inputs</button>
+                <button class="chip" data-stage="checks" type="button">Checks</button>
+                <button class="chip" data-stage="outputs" type="button">Outputs</button>
+              </div>
+
+              <div class="showcase-points" aria-live="polite">
+                <div class="point is-active" data-stage="inputs">
+                  Structured uploads with schema validation and exception queues.
+                </div>
+                <div class="point" data-stage="checks">
+                  Limits, covenants, and early triggers enforced consistently.
+                </div>
+                <div class="point" data-stage="outputs">
+                  Statements and registers produced on cadence, ready for review.
+                </div>
+              </div>
+            </div>
+
+            <div class="showcase-visual" aria-hidden="true">
+              <div class="viz-shell compact-shell" data-stage="inputs">
+                <div class="stack">
+                  <div class="stack-card c1"></div>
+                  <div class="stack-card c2"></div>
+                  <div class="stack-card c3"></div>
+                </div>
+                <div class="stamp">
+                  <div class="stamp-ring"></div>
+                  <div class="stamp-dot"></div>
+                </div>
+                <div class="viz-badge">Tap chips</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT STEPS (REPLACES TRACTION + CONTACT) -->
+    <section class="section" id="next">
+      <div class="container">
+        <div class="banner reveal">
           <div class="banner-text">
             If you are an originator, investor, or partner and want to explore a facility structure and reporting pack, email us and we will respond with next steps.
           </div>
           <div class="banner-actions">
-            <a class="btn btn-primary" href="#footer">Talk to us</a>
+            <a class="btn btn-primary" href="mailto:info@debiflow.com?subject=DebiFlow%20enquiry">Talk to us</a>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer" id="footer">
+  <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-left">
         <div class="footer-brand">DebiFlow</div>
@@ -420,6 +548,40 @@
     document.querySelectorAll(".mobile-link").forEach(a => {
       a.addEventListener("click", closeMenu);
     });
+
+    // Subtle reveal on scroll
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!prefersReduced) {
+      const els = document.querySelectorAll(".reveal");
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) e.target.classList.add("is-in");
+        });
+      }, { threshold: 0.12 });
+      els.forEach(el => io.observe(el));
+    } else {
+      document.querySelectorAll(".reveal").forEach(el => el.classList.add("is-in"));
+    }
+
+    // Chip interactions (both showcases)
+    function wireChips(scope) {
+      const chips = scope.querySelectorAll(".chip");
+      const points = scope.querySelectorAll(".point");
+      const shell = scope.querySelector(".viz-shell");
+      if (!chips.length || !points.length || !shell) return;
+
+      chips.forEach(ch => {
+        ch.addEventListener("click", () => {
+          const stage = ch.getAttribute("data-stage");
+
+          chips.forEach(x => x.classList.toggle("is-active", x === ch));
+          points.forEach(p => p.classList.toggle("is-active", p.getAttribute("data-stage") === stage));
+          shell.setAttribute("data-stage", stage);
+        });
+      });
+    }
+
+    document.querySelectorAll(".showcase-card").forEach(wireChips);
   </script>
-</body> 
+</body>
 </html>
