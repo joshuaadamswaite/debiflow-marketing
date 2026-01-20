@@ -92,13 +92,8 @@ section[id]{
   width:auto;
   display:block;
   filter: drop-shadow(0 10px 16px rgba(0,0,0,0.25));
-}
-
-.brand-logo{
-  /* existing styles... */
   filter: brightness(0) invert(1) drop-shadow(0 10px 16px rgba(0,0,0,0.25));
 }
-
 
 /* Desktop nav */
 .nav{
