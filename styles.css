@@ -67,7 +67,7 @@ button{font-family:inherit}
   line-height:1.45;
 }
 .subhead{
-  margin:14px 0 0 0;
+  margin:16px 0 0 0;
   color:rgba(12,18,31,0.82);
   font-size:1.05rem;
   line-height:1.55;
@@ -180,13 +180,15 @@ button{font-family:inherit}
   align-items:center;
   justify-content:space-between;
   gap:12px;
-  padding:12px 0;
+  height:72px;
+  padding:0;
 }
 .brand{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:11px;
   flex:0 0 auto;
+  min-height:44px; /* tap target without increasing visual height */
 }
 .brand-logo{
   height:34px;
@@ -269,7 +271,7 @@ button{font-family:inherit}
 /* Hero */
 .hero{
   position:relative;
-  padding:64px 0 26px 0;
+  padding:70px 0 32px 0;
 }
 .hero-bg{
   position:absolute;
@@ -290,29 +292,33 @@ button{font-family:inherit}
   font-weight:800;
   color:rgba(30,45,69,0.86);
   font-size:0.95rem;
-  margin-bottom:10px;
+  margin-bottom:14px;
 }
 .hero h1{
   margin:0;
   font-size:2.55rem;
   line-height:1.05;
   letter-spacing:-0.03em;
-  max-width:20ch;
+  max-width:24ch;
 }
 .hero-actions{
-  margin-top:18px;
+  margin-top:22px;
   display:flex;
   align-items:center;
-  gap:14px;
-  flex-wrap:wrap;
+  gap:16px;
+  flex-wrap:nowrap;
+}
+
+@media (max-width: 520px){
+  .hero-actions{flex-wrap:wrap}
 }
 .cycle-inline{
-  margin-top:18px;
+  margin-top:26px;
   display:flex;
   align-items:center;
   gap:8px;
   flex-wrap:wrap;
-  padding:12px 14px;
+  padding:13px 16px;
   border-radius:999px;
   background:rgba(255,255,255,0.78);
   border:1px solid rgba(30,45,69,0.12);
@@ -385,16 +391,31 @@ button{font-family:inherit}
   pointer-events:auto;
 }
 
+
+/* Hero tooltip formatting (scoped to top section only) */
+.hero .tooltip{
+  min-width:300px;
+  max-width:420px;
+}
+.hero .tooltip .tt-title{
+  font-weight:950;
+  letter-spacing:-0.01em;
+  margin-bottom:8px;
+}
+.hero .tooltip .tt-item{
+  margin:7px 0;
+}
+
 /* Proof band */
 .proof{
-  padding:14px 0 28px 0;
+  padding:20px 0 36px 0;
 }
 .proof-inner{
   border-radius:var(--r-xl);
   background:rgba(255,255,255,0.78);
   border:1px solid rgba(30,45,69,0.12);
   box-shadow:var(--shadow-soft);
-  padding:18px 18px;
+  padding:22px 22px;
 }
 .proof-title{
   font-weight:900;
@@ -405,10 +426,10 @@ button{font-family:inherit}
 .stats{
   display:grid;
   grid-template-columns:repeat(5, minmax(0, 1fr));
-  gap:12px;
+  gap:14px;
 }
 .stat{
-  padding:12px 12px;
+  padding:14px 14px;
   border-radius:16px;
   background:rgba(244,245,247,0.60);
   border:1px solid rgba(30,45,69,0.10);
