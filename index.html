@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>DebiFlow</title>
-  <meta name="description" content="DebiFlow runs per-unit receivables funding, bridging daily portfolio movement into monthly or quarterly settlement, with security sharing, controls, reporting, and repurchase workflows." />
+  <meta name="description" content="DebiFlow runs per-receivable funding. Originators raise funding as they grow. Investors get enforceable security, clear cashflows, and a repeatable settlement pack." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -12,24 +12,22 @@
   <header class="topbar" id="top">
     <div class="container topbar-inner">
       <a class="brand" href="#top" aria-label="DebiFlow Home">
-        <img
-          class="brand-logo"
-          src="assets/logo_white.svg"
-          alt="DebiFlow"
-          onerror="this.onerror=null; this.src='assets/logo.svg';"
-        />
+        <img class="brand-logo" src="assets/logo_white.svg" alt="DebiFlow"
+             onerror="this.onerror=null; this.src='assets/logo.svg';" />
       </a>
 
       <nav class="nav" aria-label="Primary navigation">
-        <a class="nav-link" href="#product">Product</a>
-        <a class="nav-link" href="#cadence">Cadence</a>
-        <a class="nav-link" href="#controls">Controls</a>
-        <a class="nav-link" href="#operate">Operate</a>
-        <a class="nav-link" href="#get-started">Get started</a>
+        <div class="nav-links">
+          <a class="nav-link" href="#how">How it works</a>
+          <a class="nav-link" href="#cycle">The cycle</a>
+          <a class="nav-link" href="#protections">Protections</a>
+          <a class="nav-link" href="#run">Run it</a>
+          <a class="nav-link" href="#start">Start</a>
+        </div>
 
         <div class="nav-actions">
-          <a class="btn btn-ghost" href="[LOGIN_URL]">Log in</a>
-          <a class="btn btn-primary" href="#get-started">Request a demo</a>
+          <a class="btn btn-ghost" href="https://debiflow7-757013332927.africa-south1.run.app/login?next=/">Log in</a>
+          <a class="btn btn-primary" href="#start">Book a demo</a>
         </div>
       </nav>
 
@@ -39,34 +37,33 @@
     </div>
 
     <div class="mobile-nav" id="mobileNav" hidden>
-      <div class="mobile-nav-inner container">
-        <a class="mobile-link" href="#product">Product</a>
-        <a class="mobile-link" href="#cadence">Cadence</a>
-        <a class="mobile-link" href="#controls">Controls</a>
-        <a class="mobile-link" href="#operate">Operate</a>
-        <a class="mobile-link" href="#get-started">Get started</a>
+      <div class="container mobile-nav-inner">
+        <a class="mobile-link" href="#how">How it works</a>
+        <a class="mobile-link" href="#cycle">The cycle</a>
+        <a class="mobile-link" href="#protections">Protections</a>
+        <a class="mobile-link" href="#run">Run it</a>
+        <a class="mobile-link" href="#start">Start</a>
 
         <div class="mobile-actions">
-          <a class="btn btn-ghost w-full" href="[LOGIN_URL]">Log in</a>
-          <a class="btn btn-primary w-full" href="#get-started">Request a demo</a>
+          <a class="btn btn-ghost w-full" href="https://debiflow7-757013332927.africa-south1.run.app/login?next=/">Log in</a>
+          <a class="btn btn-primary w-full" href="#start">Book a demo</a>
         </div>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- HERO -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-bg" aria-hidden="true"></div>
 
       <div class="container hero-inner">
         <div class="hero-copy reveal">
           <div class="eyebrow">
-            Infrastructure for the next <strong>R20 trillion</strong> of African credit.
+            Infrastructure for the next <strong>R10 trillion</strong> of African credit.
             <span class="tip">
               <button class="q" type="button" aria-label="Estimate details">?</button>
               <span class="tooltip">
-                Estimate for 2050, based on Africa population near 2.5bn and conservative credit penetration, not a forecast.
+                2050 estimate based on Africa’s projected population and conservative household credit penetration. Not a forecast.
               </span>
             </span>
           </div>
@@ -74,334 +71,337 @@
           <h1 id="hero-title">DebiFlow helps originators raise funding as they grow, while giving investors enforceable security and clean reporting.</h1>
 
           <p class="subhead">
-            Per-unit funding against receivables, without locking you into a full facility.
-            Daily portfolio movement, reconciled into settlement on a set cadence.
+            Fund receivables one purchase at a time.
+            Track daily. Settle on a monthly or quarterly cadence.
           </p>
 
-          <div class="hero-cta">
-            <a class="btn btn-primary" href="#get-started">Request a demo</a>
-            <a class="btn btn-outline" href="#cadence">See the cycle</a>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#start">Book a demo</a>
+            <a class="text-link" href="#how">See how it works</a>
           </div>
 
-          <div class="pill-row" aria-label="Highlights">
-            <span class="pill">Per-unit funding</span>
-            <span class="pill">Mandate allocations</span>
-            <span class="pill">Security sharing</span>
-            <span class="pill">Repurchases</span>
-            <span class="pill">Settlement cadence</span>
-          </div>
-
-          <!-- Single audience switcher (used once, early) -->
-          <div class="switch-block audience reveal" data-switch="audience">
-            <div class="switch-head">
-              <div class="switch-kicker">Choose your view</div>
-              <div class="segmented" role="tablist" aria-label="Audience switcher">
-                <button class="seg is-active" type="button" role="tab" aria-selected="true" data-tab="originator">Originator</button>
-                <button class="seg" type="button" role="tab" aria-selected="false" data-tab="investor">Investor</button>
-              </div>
-            </div>
-
-            <div class="switch-body">
-              <div class="pane is-active" role="tabpanel" data-pane="originator">
-                <ul class="bullets">
-                  <li>Fund receivables per unit, as the book proves itself.</li>
-                  <li>Smooth month-end pressure, settle monthly or quarterly.</li>
-                  <li>Segment by mandate, keep flexibility for early-stage timing.</li>
-                </ul>
-              </div>
-
-              <div class="pane" role="tabpanel" data-pane="investor">
-                <ul class="bullets">
-                  <li>Shared security and clean cashflow routing.</li>
-                  <li>
-                    Covenants, limits, triggers
-                    <span class="tip">
-                      <button class="q" type="button" aria-label="Definition of covenant">?</button>
-                      <span class="tooltip">A portfolio rule, like concentration limits, that must stay within agreed bounds.</span>
-                    </span>
-                    and repurchase paths.
-                  </li>
-                  <li>Reconciled reporting, exception queues, audit trail.</li>
-                </ul>
-              </div>
-            </div>
+          <div class="cycle-inline" aria-label="The cycle">
+            <span class="cycle-label">The cycle</span>
+            <span class="cycle-step">Upload</span>
+            <span class="cycle-arrow">→</span>
+            <span class="cycle-step">Allocate</span>
+            <span class="cycle-arrow">→</span>
+            <span class="cycle-step">Deploy</span>
+            <span class="cycle-arrow">→</span>
+            <span class="cycle-step">Track</span>
+            <span class="cycle-arrow">→</span>
+            <span class="cycle-step">Settle</span>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="hero-panel" aria-label="The cycle panel">
-          <div class="panel-card reveal">
-            <div class="panel-title">The cycle</div>
-            <ol class="cycle" aria-label="DebiFlow cycle">
-              <li>
-                <span class="cycle-step">Upload</span>
-                <span class="cycle-text">Loan tape for receivables to purchase.</span>
-              </li>
-              <li>
-                <span class="cycle-step">Allocate</span>
-                <span class="cycle-text">Allocate across investors by mandate.</span>
-              </li>
-              <li>
-                <span class="cycle-step">Deploy</span>
-                <span class="cycle-text">Deploy funding, record drawdowns.</span>
-              </li>
-              <li>
-                <span class="cycle-step">Track</span>
-                <span class="cycle-text">Reconcile payments, flag exceptions.</span>
-              </li>
-              <li>
-                <span class="cycle-step">Settle</span>
-                <span class="cycle-text">Close the period on cadence, with an audit trail.</span>
-              </li>
-            </ol>
-          </div>
-
-          <div class="panel-card subtle reveal">
-            <div class="panel-title">Daily to settlement</div>
-            <div class="mini-note">Track daily, settle monthly or quarterly, without the month-end scramble.</div>
-            <div class="mini-chips" aria-label="What you run">
-              <span class="mini-pill">Reconciled reporting</span>
-              <span class="mini-pill">Exception queues</span>
-              <span class="mini-pill">Repurchase review</span>
-              <span class="mini-pill">Settlement pack</span>
+    <section class="proof" aria-label="Portfolio scale to date">
+      <div class="container">
+        <div class="proof-inner reveal">
+          <div class="proof-title">Live program scale</div>
+          <div class="stats" role="list">
+            <div class="stat" role="listitem">
+              <div class="stat-value">R66.1m</div>
+              <div class="stat-label">Total investor repayments</div>
+            </div>
+            <div class="stat" role="listitem">
+              <div class="stat-value">190k</div>
+              <div class="stat-label">Receivables processed</div>
+            </div>
+            <div class="stat" role="listitem">
+              <div class="stat-value">106.9k</div>
+              <div class="stat-label">Unique contracts</div>
+            </div>
+            <div class="stat" role="listitem">
+              <div class="stat-value">R11.8m</div>
+              <div class="stat-label">Outstanding receivables</div>
+            </div>
+            <div class="stat" role="listitem">
+              <div class="stat-value">13.1k</div>
+              <div class="stat-label">Repurchases processed</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- REALITY -->
     <section class="section" id="reality">
       <div class="container">
-        <div class="section-head reveal">
-          <h2 class="h2">Early-stage lending has a cadence problem.</h2>
-          <p class="p">Collections clear after month-end, obligations do not wait.</p>
-          <div class="note">Spreadsheets had a good run.</div>
-        </div>
-
-        <div class="grid cards-5 reveal">
-          <article class="card">
-            <h3 class="h3">Per-unit, not a facility</h3>
-            <p class="p-sm">Fund receivables one purchase at a time, without forcing risky deployment.</p>
-          </article>
-
-          <article class="card">
-            <h3 class="h3">Month-end pressure</h3>
-            <p class="p-sm">Salary and facility payments land on month-end, debit orders clear later.</p>
-          </article>
-
-          <article class="card">
-            <h3 class="h3">Mandates restrict growth</h3>
-            <p class="p-sm">You scale faster when you can segment a book cleanly.</p>
-          </article>
-
-          <article class="card">
-            <h3 class="h3">Restructures scare capital</h3>
-            <p class="p-sm">Investors need clear exits and agreed rules, before things get noisy.</p>
-          </article>
-
-          <article class="card">
-            <h3 class="h3">Admin scales too fast</h3>
-            <p class="p-sm">Debt registers sprawl, controls break, reconciliation becomes the job.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRODUCT -->
-    <section class="section alt" id="product">
-      <div class="container">
-        <div class="section-head reveal">
-          <h2 class="h2">Per-unit funding, end to end.</h2>
-          <p class="p">DebiFlow runs receivables funding from purchase to final settlement, with controls, reporting, exceptions, and repurchase logic built in.</p>
-        </div>
-
-        <div class="grid cards-3 reveal">
-          <article class="card card-soft">
-            <div class="kicker">Purchase sets</div>
-            <h3 class="h3">Upload, select, purchase</h3>
-            <p class="p-sm">Upload a loan tape, select receivables, create a purchase batch.</p>
-          </article>
-
-          <article class="card card-soft">
-            <div class="kicker">Mandate allocations</div>
-            <h3 class="h3">Allocate by what fits</h3>
-            <p class="p-sm">Allocate receivables across investors, based on each mandate.</p>
-          </article>
-
-          <article class="card card-soft">
-            <div class="kicker">Run and settle</div>
-            <h3 class="h3">Track, review, settle</h3>
-            <p class="p-sm">Reconcile repayments daily, manage exceptions and repurchases, then settle on cadence.</p>
-          </article>
-        </div>
-
-        <div class="strip reveal" role="note" aria-label="What DebiFlow handles">
-          <div class="strip-title">DebiFlow handles</div>
-          <div class="strip-items">
-            <span class="chipline">Allocations</span>
-            <span class="chipline">Drawdowns</span>
-            <span class="chipline">Reconciled reporting</span>
-            <span class="chipline">Exception queues</span>
-            <span class="chipline">Repurchase workflow</span>
-            <span class="chipline">Settlement packs</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CADENCE -->
-    <section class="section" id="cadence">
-      <div class="container">
-        <div class="section-head reveal">
-          <h2 class="h2">Daily movement, settled on cadence.</h2>
-          <p class="p">A live portfolio view, bridged into monthly or quarterly settlement.</p>
-        </div>
-
-        <div class="story reveal js-chips">
-          <div class="story-left">
-            <div class="chip-row" role="tablist" aria-label="Cadence stages">
-              <button class="chip is-active" type="button" data-stage="daily">Daily</button>
-              <button class="chip" type="button" data-stage="monthend">Month-end</button>
-              <button class="chip" type="button" data-stage="settlement">Settlement day</button>
-            </div>
-
-            <div class="story-points" aria-live="polite">
-              <div class="point is-active" data-stage="daily">
-                <ul class="bullets tight">
-                  <li>Ingest new receivables and repayments.</li>
-                  <li>Run rule checks, surface only exceptions.</li>
-                  <li>Keep allocations and balances current.</li>
-                </ul>
-              </div>
-
-              <div class="point" data-stage="monthend">
-                <ul class="bullets tight">
-                  <li>See what is due vs what has cleared.</li>
-                  <li>Avoid last-minute reconciliation.</li>
-                  <li>Keep settlement predictable.</li>
-                </ul>
-              </div>
-
-              <div class="point" data-stage="settlement">
-                <ul class="bullets tight">
-                  <li>Generate settlement statements and registers.</li>
-                  <li>Apply approved repurchases, then finalise.</li>
-                  <li>Close the period with an audit trail.</li>
-                </ul>
-              </div>
-            </div>
+        <div class="section-grid reveal">
+          <div class="section-head">
+            <h2 class="h2">Early-stage lending runs on two clocks.</h2>
+            <p class="p">Collections clear after month-end. Expenses do not.</p>
+            <div class="note">Spreadsheets are great. They’re not a control room.</div>
           </div>
 
-          <div class="story-right" aria-hidden="true">
-            <div class="viz-shell cadence-viz" data-stage="daily">
-              <div class="timeline">
-                <div class="node n1">
-                  <div class="node-dot"></div>
-                  <div class="node-label">Daily</div>
-                </div>
-                <div class="node n2">
-                  <div class="node-dot"></div>
-                  <div class="node-label">Month-end</div>
-                </div>
-                <div class="node n3">
-                  <div class="node-dot"></div>
-                  <div class="node-label">Settlement</div>
-                </div>
-                <div class="timeline-line"></div>
-              </div>
-
-              <div class="viz-card mini">
-                <div class="viz-pill">Live view</div>
-                <div class="viz-text">Receivables, payments, exceptions, and repurchases, always current.</div>
-              </div>
-
-              <div class="viz-card mini mid">
-                <div class="viz-pill">Cadence</div>
-                <div class="viz-text">Daily movement, bridged into settlement packs on schedule.</div>
-              </div>
-
-              <div class="viz-card mini">
-                <div class="viz-pill">Period close</div>
-                <div class="viz-text">Sign-off, audit trail, and a repeatable reporting pack.</div>
-              </div>
+          <div class="reality-list">
+            <div class="reality-item">
+              <div class="reality-title">Per-receivable, not a facility</div>
+              <div class="reality-body">Fund receivables one purchase at a time, without forcing risky deployment.</div>
+            </div>
+            <div class="reality-item">
+              <div class="reality-title">Month-end pressure</div>
+              <div class="reality-body">Salaries and repayments hit month-end. Debit orders clear later.</div>
+            </div>
+            <div class="reality-item">
+              <div class="reality-title">Mandates restrict growth</div>
+              <div class="reality-body">Scale faster by segmenting what’s investable.</div>
+            </div>
+            <div class="reality-item">
+              <div class="reality-title">Restructures scare capital</div>
+              <div class="reality-body">Investors need clear rules and clean exits before things get noisy.</div>
+            </div>
+            <div class="reality-item">
+              <div class="reality-title">Admin scales too fast</div>
+              <div class="reality-body">Debt registers sprawl. Controls break. Reconciliation becomes the job.</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CONTROLS -->
-    <section class="section alt" id="controls">
+    <section class="section alt" id="audience">
       <div class="container">
-        <div class="section-head reveal">
-          <h2 class="h2">Controls that make receivables fundable.</h2>
-          <p class="p">The right hooks at the right time, without clutter.</p>
+        <div class="section-head narrow reveal">
+          <h2 class="h2">Built for originators and investors.</h2>
+          <p class="p">One system, one shared view of what is owned, what moved, and what settles next.</p>
         </div>
 
-        <div class="grid cards-3 reveal">
+        <div class="split reveal">
+          <article class="panel">
+            <div class="kicker">For originators</div>
+            <h3 class="h3">Raise as you grow</h3>
+            <ul class="bullets">
+              <li>Fund receivables one purchase at a time, as the book proves itself.</li>
+              <li>Reduce month-end pressure with a clear settlement cadence.</li>
+              <li>Segment by mandate, keep flexibility for early-stage timing.</li>
+            </ul>
+          </article>
+
+          <article class="panel">
+            <div class="kicker">For investors</div>
+            <h3 class="h3">Rules you can rely on</h3>
+            <ul class="bullets">
+              <li>Shared security, clean cashflow routing.</li>
+              <li>Limits, triggers, and repurchase paths.</li>
+              <li>Reconciled reporting, exception queues, audit trail.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="h2">How it works</h2>
+          <p class="p">DebiFlow runs receivables funding from purchase to settlement. Controls, reporting, exceptions, and repurchases are built in.</p>
+        </div>
+
+        <div class="timeline reveal" aria-label="How DebiFlow works">
+          <div class="t-step">
+            <div class="t-dot" aria-hidden="true"></div>
+            <div class="t-body">
+              <div class="t-kicker">Purchases</div>
+              <div class="t-title">Upload, select, purchase</div>
+              <div class="t-text">Upload a loan tape, select receivables, create a purchase.</div>
+            </div>
+          </div>
+
+          <div class="t-step">
+            <div class="t-dot" aria-hidden="true"></div>
+            <div class="t-body">
+              <div class="t-kicker">Allocations</div>
+              <div class="t-title">
+                Allocate by mandate
+                <span class="tip">
+                  <button class="q" type="button" aria-label="Definition of mandate">?</button>
+                  <span class="tooltip">A set of eligibility rules an investor uses, to decide what they can fund.</span>
+                </span>
+              </div>
+              <div class="t-text">
+                Allocate by mandate, limits, and eligibility.
+                <span class="tip">
+                  <button class="q" type="button" aria-label="Definition of allocation">?</button>
+                  <span class="tooltip">A record of which investor owns which receivable, from purchase through settlement.</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="t-step">
+            <div class="t-dot" aria-hidden="true"></div>
+            <div class="t-body">
+              <div class="t-kicker">Run and settle</div>
+              <div class="t-title">Reconcile daily. Settle on cadence.</div>
+              <div class="t-text">Reconcile daily. Review exceptions and repurchases. Settle on cadence.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band-dark" id="cycle" aria-label="The cycle">
+      <div class="band-bg" aria-hidden="true"></div>
+
+      <div class="container">
+        <div class="band-inner reveal">
+          <div class="band-head">
+            <h2 class="h2 on-dark">Daily movement, settled monthly or quarterly.</h2>
+            <p class="p on-dark-muted">A live portfolio view, settled monthly or quarterly.</p>
+          </div>
+
+          <div class="cycle-layout">
+            <div>
+              <div class="cycle-tabs" role="tablist" aria-label="Cadence stages">
+                <button class="chip is-active" type="button" data-stage="daily" aria-selected="true">Daily</button>
+                <button class="chip" type="button" data-stage="monthend" aria-selected="false">Month-end view</button>
+                <button class="chip" type="button" data-stage="settlement" aria-selected="false">Settlement</button>
+              </div>
+
+              <div class="cycle-content" aria-live="polite">
+                <div class="cycle-pane is-active" data-stage="daily" role="tabpanel">
+                  <ul class="bullets on-dark tight">
+                    <li>Ingest new receivables and repayments.</li>
+                    <li>Run rule checks. Surface only exceptions.</li>
+                    <li>Keep allocations and balances current.</li>
+                  </ul>
+                </div>
+
+                <div class="cycle-pane" data-stage="monthend" role="tabpanel">
+                  <ul class="bullets on-dark tight">
+                    <li>See what’s due vs what’s cleared.</li>
+                    <li>Avoid last-minute reconciliation.</li>
+                    <li>Keep settlement predictable.</li>
+                  </ul>
+                </div>
+
+                <div class="cycle-pane" data-stage="settlement" role="tabpanel">
+                  <ul class="bullets on-dark tight">
+                    <li>Generate the settlement pack.</li>
+                    <li>Apply approved repurchases, then finalise.</li>
+                    <li>Close the period with an audit trail.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="cycle-rail" aria-hidden="true">
+              <div class="rail">
+                <div class="rail-node is-active" data-stage="daily">
+                  <div class="rail-dot"></div>
+                  <div class="rail-label">Daily</div>
+                </div>
+                <div class="rail-node" data-stage="monthend">
+                  <div class="rail-dot"></div>
+                  <div class="rail-label">Month-end</div>
+                </div>
+                <div class="rail-node" data-stage="settlement">
+                  <div class="rail-dot"></div>
+                  <div class="rail-label">Settlement</div>
+                </div>
+                <div class="rail-line"></div>
+              </div>
+
+              <div class="cycle-card">
+                <div class="cycle-card-title">From daily to settled</div>
+                <div class="cycle-card-note">Track daily. Settle monthly or quarterly. Skip the scramble.</div>
+                <div class="mini-chips">
+                  <span class="mini-pill">Exception queues</span>
+                  <span class="mini-pill">Repurchase review queue</span>
+                  <span class="mini-pill">Settlement pack</span>
+                  <span class="mini-pill">Audit trail</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="band-cta">
+            <a class="btn btn-primary" href="#start">Book a demo</a>
+            <a class="btn btn-outline" href="#protections">See protections</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="protections">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="h2">Protections that make receivables fundable.</h2>
+          <p class="p">The right protections at the right time.</p>
+        </div>
+
+        <div class="prot-grid reveal">
           <article class="card">
-            <h3 class="h3">Collateral and cashflows</h3>
+            <h3 class="h3">Security and cashflows</h3>
             <ul class="bullets tight">
-              <li>Security sharing across investors</li>
+              <li>Security sharing across investors.</li>
               <li>
-                Collections account pledge / cession
+                Collections account pledge, cession
                 <span class="tip">
                   <button class="q" type="button" aria-label="Definition of cession">?</button>
                   <span class="tooltip">A legal transfer of collection rights into the shared security pool.</span>
                 </span>
               </li>
-              <li>Settlement cadence built into the workflow</li>
+              <li>Settlement cadence built in.</li>
             </ul>
           </article>
 
           <article class="card">
-            <h3 class="h3">Limits and triggers</h3>
+            <h3 class="h3">Rules and triggers</h3>
             <ul class="bullets tight">
               <li>
-                Covenants, limits, triggers
+                Covenants
                 <span class="tip">
-                  <button class="q" type="button" aria-label="Definition of trigger">?</button>
-                  <span class="tooltip">A threshold that prompts action, before issues become disputes.</span>
+                  <button class="q" type="button" aria-label="Definition of covenant">?</button>
+                  <span class="tooltip">A portfolio rule, like concentration limits, that must stay within agreed bounds.</span>
                 </span>
               </li>
-              <li>Eligibility rules by mandate</li>
-              <li>Breach alerts into exception queues</li>
+              <li>
+                Triggers
+                <span class="tip">
+                  <button class="q" type="button" aria-label="Definition of trigger">?</button>
+                  <span class="tooltip">A threshold that prompts action before issues become disputes.</span>
+                </span>
+              </li>
+              <li>Eligibility rules per mandate.</li>
+              <li>Breach alerts in the exception queue.</li>
             </ul>
           </article>
 
           <article class="card">
-            <h3 class="h3">Operations and audit</h3>
+            <h3 class="h3">Operations and audit trail</h3>
             <ul class="bullets tight">
               <li>
-                Repurchases, review then finalise
+                Repurchase workflow
                 <span class="tip">
                   <button class="q" type="button" aria-label="Definition of repurchase">?</button>
                   <span class="tooltip">The originator buys back a receivable if it breaks rules or exits eligibility.</span>
                 </span>
               </li>
-              <li>Reconciled reporting every run</li>
-              <li>Audit trail from intake to settlement</li>
+              <li>Reconciled reporting every cycle.</li>
+              <li>Audit trail from intake to settlement.</li>
             </ul>
           </article>
         </div>
 
         <details class="details reveal">
-          <summary class="details-summary">See all controls</summary>
+          <summary class="details-summary">See all protections</summary>
           <div class="details-body">
-            <div class="controls-list">
-              <div class="controls-col">
-                <div class="control-item">Security sharing across multiple investors</div>
-                <div class="control-item">Collections account pledge and cession</div>
-                <div class="control-item">Covenants and portfolio limits</div>
-                <div class="control-item">Concentration limits</div>
-                <div class="control-item">Eligibility rules and mandate fit checks</div>
+            <div class="two-col">
+              <div class="list">
+                <div class="li">Security sharing across multiple investors</div>
+                <div class="li">Collections account pledge and cession</div>
+                <div class="li">Cashflow routing and ownership records</div>
+                <div class="li">Settlement cadence scheduling and packs</div>
               </div>
-              <div class="controls-col">
-                <div class="control-item">Triggers and breach alerts</div>
-                <div class="control-item">Exception queues with reasons</div>
-                <div class="control-item">Repurchase rules, review vs finalised workflow</div>
-                <div class="control-item">Settlement cadence scheduling and packs</div>
-                <div class="control-item">Audit trail, versioned inputs and outputs</div>
+              <div class="list">
+                <div class="li">Covenants and portfolio limits</div>
+                <div class="li">Triggers and breach alerts</div>
+                <div class="li">Exception queues with reasons</div>
+                <div class="li">Repurchase register, review vs finalised</div>
+                <div class="li">Audit trail, versioned inputs and outputs</div>
               </div>
             </div>
           </div>
@@ -409,145 +409,134 @@
       </div>
     </section>
 
-    <!-- OPERATE -->
-    <section class="section" id="operate">
+    <section class="section" id="run">
       <div class="container">
-        <div class="section-head reveal">
-          <h2 class="h2">Operate the cycle, without the scramble.</h2>
-          <p class="p">One workflow for reporting, exceptions, repurchases, and settlement.</p>
-        </div>
+        <div class="run-layout reveal">
+          <div class="run-head">
+            <h2 class="h2">Run the cycle, without the scramble.</h2>
+            <p class="p">One workflow for reporting, exceptions, repurchases, settlement.</p>
+          </div>
 
-        <div class="grid cards-4 reveal">
-          <article class="card card-soft">
-            <div class="kicker">Reporting</div>
-            <h3 class="h3">Reconciled outputs</h3>
-            <p class="p-sm">Payment allocation, balances, statements, covenant snapshot.</p>
-          </article>
+          <div class="run-items">
+            <div class="run-item">
+              <div class="run-tag">Reporting</div>
+              <div class="run-title">Reconciled outputs</div>
+              <div class="run-text">Payment allocation, balances, statements, covenant snapshot.</div>
+            </div>
 
-          <article class="card card-soft">
-            <div class="kicker">Exceptions</div>
-            <h3 class="h3">Queues with reasons</h3>
-            <p class="p-sm">Missing inputs, mismatches, out-of-mandate items, duplicates.</p>
-          </article>
+            <div class="run-item">
+              <div class="run-tag">Exceptions</div>
+              <div class="run-title">Queues with reasons</div>
+              <div class="run-text">Missing inputs, mismatches, out-of-mandate items, duplicates.</div>
+            </div>
 
-          <article class="card card-soft">
-            <div class="kicker">Repurchases</div>
-            <h3 class="h3">Review, then finalise</h3>
-            <p class="p-sm">Mark for review, see impact, finalise to lock in.</p>
-          </article>
+            <div class="run-item">
+              <div class="run-tag">Repurchases</div>
+              <div class="run-title">Review, then finalise</div>
+              <div class="run-text">Mark for review, see impact, finalise and lock in.</div>
+            </div>
 
-          <article class="card card-soft">
-            <div class="kicker">Settlement</div>
-            <h3 class="h3">Close on cadence</h3>
-            <p class="p-sm">Monthly or quarterly packs, sign-off, audit trail.</p>
-          </article>
+            <div class="run-item">
+              <div class="run-tag">Settlement</div>
+              <div class="run-title">Close on cadence</div>
+              <div class="run-text">Monthly or quarterly pack, sign-off, audit trail.</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- OUTPUTS -->
     <section class="section alt" id="outputs">
       <div class="container">
         <div class="section-head reveal">
-          <h2 class="h2">Your reporting pack, ready to send.</h2>
-          <p class="p">Same cadence, same logic, every period.</p>
+          <h2 class="h2">A reporting pack you can send.</h2>
+          <p class="p">Same cadence. Same logic. Every period.</p>
           <div class="note">No twelve-tab spreadsheet required.</div>
         </div>
 
-        <div class="grid pack-grid reveal">
-          <div class="card">
+        <div class="pack reveal">
+          <div class="pack-left card">
             <h3 class="h3">Outputs</h3>
             <ul class="bullets">
               <li>Allocation register by investor and mandate</li>
-              <li>Debt register for the receivables pool</li>
+              <li>Debt register for the funded pool</li>
               <li>Payment allocation schedule</li>
-              <li>Arrears and bucket view</li>
-              <li>Covenant, limit, trigger report</li>
+              <li>Arrears and buckets</li>
+              <li>Covenants, limits, triggers report</li>
               <li>Repurchase register, review vs finalised</li>
               <li>Settlement statement and period close pack</li>
             </ul>
           </div>
 
-          <div class="card card-soft">
-            <h3 class="h3">Designed for scanning</h3>
-            <ul class="bullets">
-              <li>Concrete nouns, consistent formats</li>
-              <li>Exceptions listed with reasons</li>
-              <li>Versioned inputs, reproducible outputs</li>
-              <li>Downloadable packs for sharing</li>
-            </ul>
+          <div class="pack-right">
+            <div class="callout">
+              <div class="callout-title">Designed for scanning</div>
+              <ul class="bullets tight">
+                <li>Concrete nouns. Consistent formats.</li>
+                <li>Exceptions listed with reasons.</li>
+                <li>Versioned inputs. Reproducible outputs.</li>
+                <li>Downloadable packs for sharing.</li>
+              </ul>
+            </div>
+
+            <div class="callout soft">
+              <div class="callout-title">Settle with confidence</div>
+              <div class="callout-text">The pack is the same shape every time. That is the point.</div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- GET STARTED -->
-    <section class="section" id="get-started">
+    <section class="section" id="start">
       <div class="container">
         <div class="section-head reveal">
-          <h2 class="h2">Start small, scale clean.</h2>
-          <p class="p">If you have <strong>R500k+</strong> in live receivables, you are in range.</p>
+          <h2 class="h2">Start small. Scale clean.</h2>
+          <p class="p">If you have <strong>R500k+</strong> in live receivables, you’re in range.</p>
         </div>
 
-        <div class="grid start-grid reveal">
+        <div class="start-grid reveal">
           <div class="card">
             <h3 class="h3">What you bring</h3>
             <ul class="bullets">
-              <li>Loan tape export and receivable schedule</li>
-              <li>Repayment file or repayment export</li>
-              <li>
-                Investor mandates
-                <span class="tip">
-                  <button class="q" type="button" aria-label="Definition of mandate">?</button>
-                  <span class="tooltip">An investor’s rules for what they can fund.</span>
-                </span>
-                or a first draft
-              </li>
-              <li>A collections account used for repayments</li>
+              <li>Loan tape export and receivables schedule</li>
+              <li>Repayment file or export</li>
+              <li>Investor mandates (or a first draft)</li>
+              <li>A collections account for repayments</li>
             </ul>
           </div>
 
           <div class="card card-soft">
             <h3 class="h3">What DebiFlow sets up</h3>
             <ul class="bullets">
-              <li>Data mapping and validation checks</li>
+              <li>Data mapping and validation</li>
               <li>Mandate rules and allocation templates</li>
               <li>Cadence and settlement pack structure</li>
-              <li>First reconciled reporting run</li>
+              <li>First reconciled run</li>
             </ul>
 
             <div class="cta-row">
-              <a class="btn btn-primary" href="mailto:info@debiflow.com?subject=DebiFlow%20demo%20request">Request a demo</a>
-              <a class="btn btn-outline" href="[LOGIN_URL]">Log in</a>
+              <a class="btn btn-primary" href="mailto:info@debiflow.com?subject=DebiFlow%20demo%20request">Book a demo</a>
+              <a class="btn btn-outline" href="https://debiflow7-757013332927.africa-south1.run.app/login?next=/">Log in</a>
             </div>
 
-            <div class="mini-note">Prefer email, send a sample tape and we will reply with next steps.</div>
+            <div class="mini-note">Prefer email, send a sample tape and we’ll reply with next steps.</div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- ABOUT + FINAL CTA -->
-    <section class="section alt" id="about">
-      <div class="container">
-        <div class="grid about-grid reveal">
-          <div class="about-copy">
+        <div class="closing reveal" id="about">
+          <div class="closing-copy">
             <h2 class="h2">Built in South Africa, for real portfolios.</h2>
-            <p class="p">
-              DebiFlow was built to run receivables funding with repeatable reporting, clear controls, and predictable settlement.
-              Calm month-ends are a feature.
-            </p>
+            <p class="p">DebiFlow was built to run receivables funding with repeatable reporting, clear protections, and predictable settlement. Calm month-ends are a feature.</p>
           </div>
 
-          <div class="banner">
-            <div class="banner-kicker">Final step</div>
-            <div class="banner-title">See DebiFlow on your data.</div>
-            <div class="banner-text">
-              Share a sample loan tape, we will show the cycle, controls, and the reporting pack you would send.
-            </div>
+          <div class="closing-banner">
+            <div class="banner-kicker">Next step</div>
+            <div class="banner-title">See DebiFlow on your data</div>
+            <div class="banner-text">Share a sample loan tape and we’ll show your cycle, protections, and the reporting pack you’d send.</div>
             <div class="banner-actions">
-              <a class="btn btn-primary" href="mailto:info@debiflow.com?subject=DebiFlow%20enquiry">Request a demo</a>
-              <a class="btn btn-ghost" href="[LOGIN_URL]">Log in</a>
+              <a class="btn btn-primary" href="mailto:info@debiflow.com?subject=DebiFlow%20sample%20tape">Book a demo</a>
+              <a class="btn btn-ghost" href="https://debiflow7-757013332927.africa-south1.run.app/login?next=/">Log in</a>
             </div>
           </div>
         </div>
@@ -559,12 +548,18 @@
     <div class="container footer-inner">
       <div class="footer-left">
         <div class="footer-brand">DebiFlow</div>
-        <div class="footer-muted">Receivables funding infrastructure.</div>
+        <div class="footer-muted">Receivables funding, run properly.</div>
       </div>
+
       <div class="footer-right">
         <a class="footer-link" href="mailto:info@debiflow.com">info@debiflow.com</a>
+        <a class="footer-link" href="https://debiflow7-757013332927.africa-south1.run.app/login?next=/">Log in</a>
         <a class="footer-link" href="#top">Back to top</a>
       </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div class="footer-fine">© 2026 DebiFlow</div>
     </div>
   </footer>
 
@@ -604,46 +599,27 @@
       document.querySelectorAll(".reveal").forEach(el => el.classList.add("is-in"));
     }
 
-    // Audience switcher (single use, early)
-    document.querySelectorAll('[data-switch="audience"]').forEach(block => {
-      const tabs = block.querySelectorAll("[data-tab]");
-      const panes = block.querySelectorAll("[data-pane]");
-
-      tabs.forEach(t => {
-        t.addEventListener("click", () => {
-          const key = t.getAttribute("data-tab");
-
-          tabs.forEach(x => {
-            const active = x === t;
-            x.classList.toggle("is-active", active);
-            x.setAttribute("aria-selected", active ? "true" : "false");
-          });
-
-          panes.forEach(p => p.classList.toggle("is-active", p.getAttribute("data-pane") === key));
-        });
+    // Cadence tabs
+    const band = document.getElementById("cycle");
+    function setStage(stage) {
+      const chips = band.querySelectorAll(".chip");
+      const panes = band.querySelectorAll(".cycle-pane");
+      const nodes = band.querySelectorAll(".rail-node");
+      chips.forEach(c => {
+        const active = c.getAttribute("data-stage") === stage;
+        c.classList.toggle("is-active", active);
+        c.setAttribute("aria-selected", active ? "true" : "false");
       });
-    });
-
-    // Chip interactions (cadence scrollytelling)
-    function wireChips(scope) {
-      const chips = scope.querySelectorAll(".chip");
-      const points = scope.querySelectorAll(".point");
-      if (!chips.length || !points.length) return;
-
-      const shell = scope.querySelector(".viz-shell");
-
-      chips.forEach(ch => {
-        ch.addEventListener("click", () => {
-          const stage = ch.getAttribute("data-stage");
-
-          chips.forEach(x => x.classList.toggle("is-active", x === ch));
-          points.forEach(p => p.classList.toggle("is-active", p.getAttribute("data-stage") === stage));
-          if (shell) shell.setAttribute("data-stage", stage);
-        });
-      });
+      panes.forEach(p => p.classList.toggle("is-active", p.getAttribute("data-stage") === stage));
+      nodes.forEach(n => n.classList.toggle("is-active", n.getAttribute("data-stage") === stage));
     }
 
-    document.querySelectorAll(".js-chips").forEach(wireChips);
+    if (band) {
+      band.querySelectorAll(".chip").forEach(b => {
+        b.addEventListener("click", () => setStage(b.getAttribute("data-stage")));
+      });
+    }
   </script>
 </body>
 </html>
+ 
