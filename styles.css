@@ -491,6 +491,54 @@ button{font-family:inherit}
   border-top:1px solid rgba(30,45,69,0.08);
   border-bottom:1px solid rgba(30,45,69,0.08);
 }
+
+/* Dark blue section band (colour-only) */
+.section.section-dark{
+  position:relative;
+}
+
+/* Use the same dark-blue language as the Cycle band */
+.section.section-dark::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(900px 420px at 15% 0%, rgba(15,118,110,0.22), transparent 64%),
+    radial-gradient(900px 420px at 85% 10%, rgba(244,245,247,0.10), transparent 62%),
+    linear-gradient(180deg, rgba(30,45,69,0.96), rgba(30,45,69,0.92));
+  pointer-events:none;
+  z-index:0;
+}
+
+/* Keep content above the background */
+.section.section-dark > .container{
+  position:relative;
+  z-index:1;
+}
+
+/* If the section is also .alt, override the light alt background and borders */
+.section.alt.section-dark{
+  background:transparent;
+  border-top:1px solid rgba(244,245,247,0.10);
+  border-bottom:1px solid rgba(244,245,247,0.10);
+}
+
+/* Head text on dark sections (targeted so cards stay normal) */
+.section.section-dark .section-head .h2,
+.section.section-dark .run-head .h2{
+  color:rgba(244,245,247,0.96);
+}
+
+.section.section-dark .section-head .p,
+.section.section-dark .run-head .p{
+  color:rgba(244,245,247,0.72);
+}
+
+.section.section-dark .section-head .note{
+  color:rgba(244,245,247,0.72);
+}
+
+
 .section-head{
   max-width:68ch;
 }
