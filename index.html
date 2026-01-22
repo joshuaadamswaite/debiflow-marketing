@@ -210,48 +210,54 @@
       <div class="container">
         <div class="section-head reveal">
           <h2 class="h2">How it works</h2>
-          <p class="p">DebiFlow runs receivables funding from purchase to settlement. Controls, reporting, exceptions, and repurchases are built in.</p>
+          <p class="p">DebiFlow runs receivables funding from contract to recovery. Controls, reporting, exceptions, and repurchases are built in.</p>
         </div>
 
-        <div class="timeline reveal" aria-label="How DebiFlow works">
-          <div class="t-step">
-            <div class="t-dot" aria-hidden="true"></div>
-            <div class="t-body">
-              <div class="t-kicker">Purchases</div>
-              <div class="t-title">Upload, select, purchase</div>
-              <div class="t-text">Upload a loan tape, select receivables, create a purchase.</div>
-            </div>
-          </div>
+                <div class="timeline reveal how-accordion" aria-label="How DebiFlow works">
+          <details class="how-step" open>
+            <summary class="how-summary">
+              <span class="how-dot" aria-hidden="true"></span>
+              <span class="how-title">Contract</span>
+              <span class="how-chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="how-body">Standardised facility agreements, pledged collection accounts, and security sharing documents create a smooth onboarding process for both originators and investors.</div>
+          </details>
 
-          <div class="t-step">
-            <div class="t-dot" aria-hidden="true"></div>
-            <div class="t-body">
-              <div class="t-kicker">Allocations</div>
-              <div class="t-title">
-                Allocate by mandate
-                <span class="tip">
-                  <button class="q" type="button" aria-label="Definition of mandate">?</button>
-                  <span class="tooltip">A set of eligibility rules an investor uses, to decide what they can fund.</span>
-                </span>
-              </div>
-              <div class="t-text">
-                Allocate by mandate, limits, and eligibility.
-                <span class="tip">
-                  <button class="q" type="button" aria-label="Definition of allocation">?</button>
-                  <span class="tooltip">A record of which investor owns which receivable, from purchase through settlement.</span>
-                </span>
-              </div>
-            </div>
-          </div>
+          <details class="how-step">
+            <summary class="how-summary">
+              <span class="how-dot" aria-hidden="true"></span>
+              <span class="how-title">Upload</span>
+              <span class="how-chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="how-body">Originators upload recently disbursed receivables using predefined templates, up to the agreed funding limit. Exceptions that do not meet the eligibility criteria are flagged and excluded from the investible pool.</div>
+          </details>
 
-          <div class="t-step">
-            <div class="t-dot" aria-hidden="true"></div>
-            <div class="t-body">
-              <div class="t-kicker">Run and settle</div>
-              <div class="t-title">Reconcile daily. Settle on cadence.</div>
-              <div class="t-text">Reconcile daily. Review exceptions and repurchases. Settle on cadence.</div>
-            </div>
-          </div>
+          <details class="how-step">
+            <summary class="how-summary">
+              <span class="how-dot" aria-hidden="true"></span>
+              <span class="how-title">Allocate</span>
+              <span class="how-chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="how-body">Receivables are allocated across investors based on return, impact, or liquidity goals, ensuring optimal mandate fit and the lowest cost of funding for the originators.</div>
+          </details>
+
+          <details class="how-step">
+            <summary class="how-summary">
+              <span class="how-dot" aria-hidden="true"></span>
+              <span class="how-title">Settle</span>
+              <span class="how-chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="how-body">As repayment data is received, DebiFlow calculates each investor’s entitlement and converts many receivable-level movements into a single settlement from the originator on the agreed cadence, aligned to each investor’s liquidity profile.</div>
+          </details>
+
+          <details class="how-step">
+            <summary class="how-summary">
+              <span class="how-dot" aria-hidden="true"></span>
+              <span class="how-title">Recovery</span>
+              <span class="how-chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="how-body">DebiFlow manages the repurchase of past-due accounts and, if agreed protections are ever triggered, enforces the pledged accounts and security package to execute the payment waterfall, without waiting for lengthy insolvency proceedings.</div>
+          </details>
         </div>
       </div>
     </section>
@@ -666,6 +672,46 @@
 
       const defaultRole = (roleSelect.querySelector(".role-row.is-selected")?.getAttribute("data-role")) || "originator";
       setRole(defaultRole);
+    }
+
+    // How it works accordion (Option A: single-open)
+    const how = document.getElementById("how");
+    if (how) {
+      const steps = Array.from(how.querySelectorAll("details.how-step"));
+      if (steps.length) {
+        const mqMobile = window.matchMedia("(max-width: 760px)");
+
+        function setDefaults() {
+          if (mqMobile.matches) {
+            steps.forEach(d => d.removeAttribute("open"));
+          } else {
+            steps.forEach((d, i) => {
+              if (i === 0) d.setAttribute("open", "");
+              else d.removeAttribute("open");
+            });
+          }
+        }
+
+        setDefaults();
+
+        // Keep defaults consistent if viewport changes
+        const mqHandler = () => setDefaults();
+        if (typeof mqMobile.addEventListener === "function") {
+          mqMobile.addEventListener("change", mqHandler);
+        } else if (typeof mqMobile.addListener === "function") {
+          mqMobile.addListener(mqHandler);
+        }
+
+        // Ensure only one step is expanded at a time
+        steps.forEach(d => {
+          d.addEventListener("toggle", () => {
+            if (!d.open) return;
+            steps.forEach(other => {
+              if (other !== d) other.open = false;
+            });
+          });
+        });
+      }
     }
   </script>
 </body>
