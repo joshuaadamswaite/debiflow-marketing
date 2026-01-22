@@ -333,59 +333,34 @@
       <div class="container">
         <div class="section-head reveal">
           <h2 class="h2">Protections that make receivables fundable.</h2>
-          <p class="p">The right protections at the right time.</p>
+          <p class="p">Clear limits, enforceable security, and a repeatable settlement cycle.</p>
         </div>
 
         <div class="prot-grid reveal">
           <article class="card">
-            <h3 class="h3">Security and cashflows</h3>
+            <h3 class="h3">Funding &amp; collateral</h3>
             <ul class="bullets tight">
-              <li>Security sharing across investors.</li>
-              <li>
-                Collections account pledge, cession
-                <span class="tip">
-                  <button class="q" type="button" aria-label="Definition of cession">?</button>
-                  <span class="tooltip">A legal transfer of collection rights into the shared security pool.</span>
-                </span>
-              </li>
-              <li>Settlement cadence built in.</li>
+              <li>Only already issued, mandate-eligible receivables are purchased and funded, after finance verification.</li>
+              <li>Advance rates and funded-share caps preserve headroom and leave excess collateral unfunded.</li>
+              <li>Growth and drawdown limits align funding with forward capital requirements.</li>
             </ul>
           </article>
 
           <article class="card">
-            <h3 class="h3">Rules and triggers</h3>
+            <h3 class="h3">Risk limits &amp; repurchases</h3>
             <ul class="bullets tight">
-              <li>
-                Covenants
-                <span class="tip">
-                  <button class="q" type="button" aria-label="Definition of covenant">?</button>
-                  <span class="tooltip">A portfolio rule, like concentration limits, that must stay within agreed bounds.</span>
-                </span>
-              </li>
-              <li>
-                Triggers
-                <span class="tip">
-                  <button class="q" type="button" aria-label="Definition of trigger">?</button>
-                  <span class="tooltip">A threshold that prompts action before issues become disputes.</span>
-                </span>
-              </li>
-              <li>Eligibility rules per mandate.</li>
-              <li>Breach alerts in the exception queue.</li>
+              <li>Portfolio covenants set clear limits on ageing, concentration, and performance.</li>
+              <li>Triggers and breach alerts route issues into an exception queue with explicit reasons.</li>
+              <li>Repurchase controls keep metrics within thresholds, including a defined DPD ceiling.</li>
             </ul>
           </article>
 
           <article class="card">
-            <h3 class="h3">Operations and audit trail</h3>
+            <h3 class="h3">Legal &amp; oversight</h3>
             <ul class="bullets tight">
-              <li>
-                Repurchase workflow
-                <span class="tip">
-                  <button class="q" type="button" aria-label="Definition of repurchase">?</button>
-                  <span class="tooltip">The originator buys back a receivable if it breaks rules or exits eligibility.</span>
-                </span>
-              </li>
-              <li>Reconciled reporting every cycle.</li>
-              <li>Audit trail from intake to settlement.</li>
+              <li>Standardised documentation defines calculations, timing, covenants, and the cash waterfall.</li>
+              <li>Collections account pledge and cession, with bank notification, enables rapid enforcement on breach.</li>
+              <li>Reconciled monthly reporting and versioned outputs provide ongoing visibility and auditability.</li>
             </ul>
           </article>
         </div>
@@ -393,19 +368,105 @@
         <details class="details reveal">
           <summary class="details-summary">See all protections</summary>
           <div class="details-body">
-            <div class="two-col">
-              <div class="list">
-                <div class="li">Security sharing across multiple investors</div>
-                <div class="li">Collections account pledge and cession</div>
-                <div class="li">Cashflow routing and ownership records</div>
-                <div class="li">Settlement cadence scheduling and packs</div>
+            <div class="two-col prot-accordion">
+              <div class="list prot-list">
+                <details class="prot-item">
+                  <summary class="prot-summary">
+                    <span class="prot-title">Receivable eligibility and verification</span>
+                    <span class="prot-chev" aria-hidden="true"></span>
+                  </summary>
+                  <div class="prot-desc">Only receivables that are issued, finance-verified, and in-scope for the mandate can be funded.</div>
+                </details>
+
+                <details class="prot-item">
+                  <summary class="prot-summary">
+                    <span class="prot-title">Advance rates per receivable</span>
+                    <span class="prot-chev" aria-hidden="true"></span>
+                  </summary>
+                  <div class="prot-desc">Each receivable funds at an agreed advance rate to preserve headroom for fees, interest, and repurchases.</div>
+                </details>
+
+                <details class="prot-item">
+                  <summary class="prot-summary">
+                    <span class="prot-title">Funded share and collateral buffers</span>
+                    <span class="prot-chev" aria-hidden="true"></span>
+                  </summary>
+                  <div class="prot-desc">Caps the funded portion of the portfolio, leaving excess collateral unfunded to protect investors.</div>
+                </details>
+
+                <details class="prot-item">
+                  <summary class="prot-summary">
+                    <span class="prot-title">Growth and drawdown limits</span>
+                    <span class="prot-chev" aria-hidden="true"></span>
+                  </summary>
+                  <div class="prot-desc">Controls originator growth to match forward capital requirements and agreed portfolio constraints.</div>
+                </details>
+
+                <details class="prot-item">
+                  <summary class="prot-summary">
+                    <span class="prot-title">Security sharing across multiple investors</span>
+                    <span class="prot-chev" aria-hidden="true"></span>
+                  </summary>
+                  <div class="prot-desc">Allocates security and exposure per investor so funding can scale without breaking enforceability.</div>
+                </details>
+
+                <details class="prot-item">
+                  <summary class="prot-summary">
+                    <span class="prot-title">Collections account pledge and cession</span>
+                    <span class="prot-chev" aria-hidden="true"></span>
+                  </summary>
+                  <div class="prot-desc">Routes collections through a pledged account with cession mechanics to support fast enforcement on breach.</div>
+                </details>
               </div>
-              <div class="list">
-                <div class="li">Covenants and portfolio limits</div>
-                <div class="li">Triggers and breach alerts</div>
-                <div class="li">Exception queues with reasons</div>
-                <div class="li">Repurchase register, review vs finalised</div>
-                <div class="li">Audit trail, versioned inputs and outputs</div>
+
+              <div class="list prot-list">
+                <details class="prot-item">
+                  <summary class="prot-summary">
+                    <span class="prot-title">Cashflow routing and ownership records</span>
+                    <span class="prot-chev" aria-hidden="true"></span>
+                  </summary>
+                  <div class="prot-desc">Maintains a per-receivable ownership ledger and cash routing logic for clear settlement outcomes.</div>
+                </details>
+
+                <details class="prot-item">
+                  <summary class="prot-summary">
+                    <span class="prot-title">Portfolio covenants and limits</span>
+                    <span class="prot-chev" aria-hidden="true"></span>
+                  </summary>
+                  <div class="prot-desc">Defines portfolio-level limits for ageing, concentration, and performance, measured consistently each cycle.</div>
+                </details>
+
+                <details class="prot-item">
+                  <summary class="prot-summary">
+                    <span class="prot-title">Triggers and breach alerts</span>
+                    <span class="prot-chev" aria-hidden="true"></span>
+                  </summary>
+                  <div class="prot-desc">Automated checks flag covenant breaches and operational issues immediately, with clear breach reasons.</div>
+                </details>
+
+                <details class="prot-item">
+                  <summary class="prot-summary">
+                    <span class="prot-title">Exception queue with reasons</span>
+                    <span class="prot-chev" aria-hidden="true"></span>
+                  </summary>
+                  <div class="prot-desc">Non-compliant items are held back and tracked, with explicit reasons and an audit-friendly resolution path.</div>
+                </details>
+
+                <details class="prot-item">
+                  <summary class="prot-summary">
+                    <span class="prot-title">Repurchase workflow, review vs finalised</span>
+                    <span class="prot-chev" aria-hidden="true"></span>
+                  </summary>
+                  <div class="prot-desc">Supports review-stage repurchases and locked finalisation, with the register carried forward each cycle.</div>
+                </details>
+
+                <details class="prot-item">
+                  <summary class="prot-summary">
+                    <span class="prot-title">Audit trail, versioned inputs and outputs</span>
+                    <span class="prot-chev" aria-hidden="true"></span>
+                  </summary>
+                  <div class="prot-desc">Every cycle produces versioned inputs, outputs, and calculations so results are reproducible and reviewable.</div>
+                </details>
               </div>
             </div>
           </div>
