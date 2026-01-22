@@ -405,6 +405,24 @@ button{font-family:inherit}
 .hero .tooltip .tt-item{
   margin:7px 0;
 }
+/* Hero tooltip sources line (scoped to top section only) */
+.hero .tooltip .tt-foot{
+  margin-top:10px;
+  font-size:0.76rem;
+  opacity:0.80;
+  line-height:1.25;
+}
+
+.hero .tooltip .tt-ref{
+  font-weight:900;
+  opacity:0.90;
+}
+
+.hero .tooltip .tt-foot a{
+  color:inherit;
+  text-decoration:underline;
+  text-underline-offset:2px;
+}
 
 /* Proof band */
 .proof{
