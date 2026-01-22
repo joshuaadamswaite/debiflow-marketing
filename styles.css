@@ -837,6 +837,12 @@ details[open] .how-body{
   padding:72px 0;
   overflow:hidden;
 }
+
+/* Cycle band sizing (trimmed after removing the extra card and CTAs) */
+#cycle.band{
+  padding:56px 0;
+}
+
 .band-bg{
   position:absolute;
   inset:0;

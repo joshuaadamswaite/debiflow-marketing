@@ -262,46 +262,46 @@
       </div>
     </section>
 
-    <section class="band band-dark" id="cycle" aria-label="The cycle">
+        <section class="band band-dark" id="cycle" aria-label="The cycle">
       <div class="band-bg" aria-hidden="true"></div>
 
       <div class="container">
         <div class="band-inner reveal">
           <div class="band-head">
-            <h2 class="h2 on-dark">Daily movement, settled monthly or quarterly.</h2>
-            <p class="p on-dark-muted">A live portfolio view, settled monthly or quarterly.</p>
+            <h2 class="h2 on-dark">Cash and security pools, managed inside the facility.</h2>
+            <p class="p on-dark-muted">From drawdown rules to settlement packs, DebiFlow keeps investor funds on hand or backed by high-quality receivables, while facility exposure stays within agreed limits.</p>
           </div>
 
           <div class="cycle-layout">
             <div>
-              <div class="cycle-tabs" role="tablist" aria-label="Cadence stages">
-                <button class="chip is-active" type="button" data-stage="daily" aria-selected="true">Daily</button>
-                <button class="chip" type="button" data-stage="monthend" aria-selected="false">Month-end view</button>
-                <button class="chip" type="button" data-stage="settlement" aria-selected="false">Settlement</button>
+              <div class="cycle-tabs" role="tablist" aria-label="Facility controls">
+                <button class="chip is-active" type="button" data-stage="daily" aria-selected="true">Structure the facility</button>
+                <button class="chip" type="button" data-stage="monthend" aria-selected="false">Run the float</button>
+                <button class="chip" type="button" data-stage="settlement" aria-selected="false">Protect the security pool</button>
               </div>
 
               <div class="cycle-content" aria-live="polite">
                 <div class="cycle-pane is-active" data-stage="daily" role="tabpanel">
                   <ul class="bullets on-dark tight">
-                    <li>Ingest new receivables and repayments.</li>
-                    <li>Run rule checks. Surface only exceptions.</li>
-                    <li>Keep allocations and balances current.</li>
+                    <li>Agree drawdown rules, limits, and investor liquidity preferences.</li>
+                    <li>Set maximum facility exposure, then calculate each period’s drawdown headroom after expected repayments.</li>
+                    <li>Track utilisation and available headroom at all times.</li>
                   </ul>
                 </div>
 
                 <div class="cycle-pane" data-stage="monthend" role="tabpanel">
                   <ul class="bullets on-dark tight">
-                    <li>See what’s due vs what’s cleared.</li>
-                    <li>Avoid last-minute reconciliation.</li>
-                    <li>Keep settlement predictable.</li>
+                    <li>Route in-flows and out-flows through the float account.</li>
+                    <li>Process investor settlements on the agreed cadence, or redeploy cash into new drawdowns.</li>
+                    <li>Keep cash-on-hand visibility at all times.</li>
                   </ul>
                 </div>
 
                 <div class="cycle-pane" data-stage="settlement" role="tabpanel">
                   <ul class="bullets on-dark tight">
-                    <li>Generate the settlement pack.</li>
-                    <li>Apply approved repurchases, then finalise.</li>
-                    <li>Close the period with an audit trail.</li>
+                    <li>Enforce repurchases of arrear accounts to maintain collateral quality.</li>
+                    <li>Keep the security pool aligned to eligibility rules and mandate limits.</li>
+                    <li>Deliver reconciliations and reports for easy validation and evidence.</li>
                   </ul>
                 </div>
               </div>
@@ -311,35 +311,19 @@
               <div class="rail">
                 <div class="rail-node is-active" data-stage="daily">
                   <div class="rail-dot"></div>
-                  <div class="rail-label">Daily</div>
+                  <div class="rail-label">Structure the facility</div>
                 </div>
                 <div class="rail-node" data-stage="monthend">
                   <div class="rail-dot"></div>
-                  <div class="rail-label">Month-end</div>
+                  <div class="rail-label">Run the float</div>
                 </div>
                 <div class="rail-node" data-stage="settlement">
                   <div class="rail-dot"></div>
-                  <div class="rail-label">Settlement</div>
+                  <div class="rail-label">Protect the security pool</div>
                 </div>
                 <div class="rail-line"></div>
               </div>
-
-              <div class="cycle-card">
-                <div class="cycle-card-title">From daily to settled</div>
-                <div class="cycle-card-note">Track daily. Settle monthly or quarterly. Skip the scramble.</div>
-                <div class="mini-chips">
-                  <span class="mini-pill">Exception queues</span>
-                  <span class="mini-pill">Repurchase review queue</span>
-                  <span class="mini-pill">Settlement pack</span>
-                  <span class="mini-pill">Audit trail</span>
-                </div>
-              </div>
             </div>
-          </div>
-
-          <div class="band-cta">
-            <a class="btn btn-primary" href="#start">Book a demo</a>
-            <a class="btn btn-outline" href="#protections">See protections</a>
           </div>
         </div>
       </div>
