@@ -574,6 +574,127 @@ button{font-family:inherit}
   .split{grid-template-columns:1fr}
 }
 
+/* Role select (Audience) */
+.role-select{
+  margin-top:22px;
+  display:grid;
+  grid-template-columns:1.15fr 0.85fr;
+  gap:18px;
+  align-items:start;
+}
+@media (max-width: 980px){
+  .role-select{grid-template-columns:1fr}
+}
+
+.role-table{
+  border-radius:var(--r-xl);
+  background:rgba(255,255,255,0.78);
+  border:1px solid rgba(30,45,69,0.12);
+  box-shadow:var(--shadow-soft);
+  overflow:hidden;
+}
+.role-table-inner{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0;
+}
+.role-table-inner thead th{
+  text-align:left;
+  font-weight:900;
+  color:rgba(30,45,69,0.82);
+  font-size:0.92rem;
+  padding:16px 18px;
+  background:rgba(244,245,247,0.64);
+  border-bottom:1px solid rgba(30,45,69,0.14);
+}
+.role-table-inner .role-th-open{
+  text-align:center;
+  width:140px;
+}
+.role-table-inner tbody td{
+  padding:16px 18px;
+  border-top:1px solid rgba(30,45,69,0.12);
+  background:rgba(255,255,255,0.40);
+}
+.role-table-inner tbody tr:first-child td{border-top:none}
+
+.role-row{
+  cursor:pointer;
+}
+.role-row td{
+  transition:background .12s ease, box-shadow .12s ease;
+}
+.role-row:hover td{
+  background:rgba(30,45,69,0.03);
+}
+.role-row.is-selected td{
+  background:rgba(15,118,110,0.06);
+}
+.role-row.is-selected td:first-child{
+  box-shadow:inset 3px 0 0 rgba(15,118,110,0.85);
+}
+
+.role-entity{
+  font-weight:850;
+  letter-spacing:-0.01em;
+  color:rgba(12,18,31,0.92);
+}
+
+.role-pill{
+  display:inline-flex;
+  align-items:center;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(30,45,69,0.14);
+  background:rgba(255,255,255,0.70);
+  color:rgba(30,45,69,0.86);
+  font-weight:850;
+  font-size:0.86rem;
+}
+
+.role-open-cell{
+  text-align:center;
+}
+
+.role-open{
+  height:40px;
+  padding:0 16px;
+  border-radius:999px;
+  border:1px solid rgba(0,0,0,0.14);
+  background:#000;
+  color:#fff;
+  font-weight:900;
+  letter-spacing:-0.01em;
+  cursor:pointer;
+  box-shadow:0 10px 22px rgba(0,0,0,0.18);
+  transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
+}
+.role-open:hover{
+  background:rgba(12,18,31,0.96);
+  box-shadow:0 12px 26px rgba(0,0,0,0.22);
+}
+.role-open:active{transform:translateY(1px)}
+.role-open:focus-visible{
+  outline:2px solid rgba(15,118,110,0.55);
+  outline-offset:3px;
+}
+
+.role-benefits{
+  min-height:248px;
+}
+
+.role-pane{
+  display:none;
+}
+.role-pane.is-active{
+  display:block;
+  animation:roleFadeIn .18s ease both;
+}
+@keyframes roleFadeIn{
+  from{opacity:0; transform:translateY(6px)}
+  to{opacity:1; transform:translateY(0)}
+}
+
 /* Timeline motif */
 .timeline{
   margin-top:22px;
@@ -1012,4 +1133,4 @@ button{font-family:inherit}
 @media (max-width: 780px){
   .footer-inner{flex-direction:column; align-items:flex-start}
   .footer-right{justify-content:flex-start}
-}
+} 

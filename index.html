@@ -144,67 +144,64 @@
       </div>
     </section>
 
-    <section class="section" id="reality">
-      <div class="container">
-        <div class="section-grid reveal">
-          <div class="section-head">
-            <h2 class="h2">Early-stage lending runs on two clocks.</h2>
-            <p class="p">Collections clear after month-end. Expenses do not.</p>
-            <div class="note">Spreadsheets are great. They’re not a control room.</div>
-          </div>
-
-          <div class="reality-list">
-            <div class="reality-item">
-              <div class="reality-title">Per-receivable, not a facility</div>
-              <div class="reality-body">Fund receivables one purchase at a time, without forcing risky deployment.</div>
-            </div>
-            <div class="reality-item">
-              <div class="reality-title">Month-end pressure</div>
-              <div class="reality-body">Salaries and repayments hit month-end. Debit orders clear later.</div>
-            </div>
-            <div class="reality-item">
-              <div class="reality-title">Mandates restrict growth</div>
-              <div class="reality-body">Scale faster by segmenting what’s investable.</div>
-            </div>
-            <div class="reality-item">
-              <div class="reality-title">Restructures scare capital</div>
-              <div class="reality-body">Investors need clear rules and clean exits before things get noisy.</div>
-            </div>
-            <div class="reality-item">
-              <div class="reality-title">Admin scales too fast</div>
-              <div class="reality-body">Debt registers sprawl. Controls break. Reconciliation becomes the job.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="section alt" id="audience">
       <div class="container">
         <div class="section-head narrow reveal">
           <h2 class="h2">Built for originators and investors.</h2>
-          <p class="p">One system, one shared view of what is owned, what moved, and what settles next.</p>
+          <p class="p">Select your user role to see what we offer.</p>
+          <div class="note">Expenses hit month-end. Collections clear later.<br />Spreadsheets are great. They are not a control room.</div>
         </div>
 
-        <div class="split reveal">
-          <article class="panel">
-            <div class="kicker">For originators</div>
-            <h3 class="h3">Raise as you grow</h3>
-            <ul class="bullets">
-              <li>Fund receivables one purchase at a time, as the book proves itself.</li>
-              <li>Reduce month-end pressure with a clear settlement cadence.</li>
-              <li>Segment by mandate, keep flexibility for early-stage timing.</li>
-            </ul>
-          </article>
+        <div class="role-select reveal" id="roleSelect" aria-label="Role benefits">
+          <div class="role-table" role="region" aria-label="Select role">
+            <table class="role-table-inner">
+              <thead>
+                <tr>
+                  <th scope="col">Entity</th>
+                  <th scope="col">Your role</th>
+                  <th scope="col" class="role-th-open">Open</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="role-row is-selected" data-role="originator" tabindex="0">
+                  <td class="role-entity">Lender Co. (Pty.) Ltd.</td>
+                  <td><span class="role-pill">Originator</span></td>
+                  <td class="role-open-cell">
+                    <button class="role-open" type="button" data-role="originator" aria-controls="roleBenefits" aria-pressed="true">Open</button>
+                  </td>
+                </tr>
 
-          <article class="panel">
-            <div class="kicker">For investors</div>
-            <h3 class="h3">Rules you can rely on</h3>
-            <ul class="bullets">
-              <li>Shared security, clean cashflow routing.</li>
-              <li>Limits, triggers, and repurchase paths.</li>
-              <li>Reconciled reporting, exception queues, audit trail.</li>
-            </ul>
+                <tr class="role-row" data-role="investor" tabindex="0">
+                  <td class="role-entity">Investor Co. (Pty.) Ltd.</td>
+                  <td><span class="role-pill">Investor</span></td>
+                  <td class="role-open-cell">
+                    <button class="role-open" type="button" data-role="investor" aria-controls="roleBenefits" aria-pressed="false">Open</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <article class="panel role-benefits" id="roleBenefits" aria-live="polite">
+            <div class="role-pane is-active" data-role="originator">
+              <div class="kicker">For originators</div>
+              <h3 class="h3">Raise as you grow</h3>
+              <ul class="bullets">
+                <li>Fund receivables one purchase at a time, without forcing risky deployment or admin burden.</li>
+                <li>Predictable settlement for month-end pressure when salaries hit before collections clear.</li>
+                <li>Segment what is investable by mandate, allocating each receivable to the best-fit investor.</li>
+              </ul>
+            </div>
+
+            <div class="role-pane" data-role="investor">
+              <div class="kicker">For investors</div>
+              <h3 class="h3">A system you can trust</h3>
+              <ul class="bullets">
+                <li>Simple onboarding, shared security, and clean cashflow routing.</li>
+                <li>Limits, triggers, and repurchase paths.</li>
+                <li>Reconciled reporting, exception queues, audit trail.</li>
+              </ul>
+            </div>
           </article>
         </div>
       </div>
@@ -637,7 +634,41 @@
         b.addEventListener("click", () => setStage(b.getAttribute("data-stage")));
       });
     }
+
+    // Role select toggles (Audience)
+    const roleSelect = document.getElementById("roleSelect");
+    if (roleSelect) {
+      const rows = Array.from(roleSelect.querySelectorAll(".role-row"));
+      const buttons = Array.from(roleSelect.querySelectorAll(".role-open"));
+      const panes = Array.from(roleSelect.querySelectorAll(".role-pane"));
+
+      function setRole(role) {
+        rows.forEach(r => r.classList.toggle("is-selected", r.getAttribute("data-role") === role));
+        buttons.forEach(b => b.setAttribute("aria-pressed", b.getAttribute("data-role") === role ? "true" : "false"));
+        panes.forEach(p => p.classList.toggle("is-active", p.getAttribute("data-role") === role));
+      }
+
+      buttons.forEach(b => {
+        b.addEventListener("click", (e) => {
+          e.stopPropagation();
+          setRole(b.getAttribute("data-role"));
+        });
+      });
+
+      rows.forEach(r => {
+        r.addEventListener("click", () => setRole(r.getAttribute("data-role")));
+        r.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            setRole(r.getAttribute("data-role"));
+          }
+        });
+      });
+
+      const defaultRole = (roleSelect.querySelector(".role-row.is-selected")?.getAttribute("data-role")) || "originator";
+      setRole(defaultRole);
+    }
   </script>
 </body>
-</html>
+</html> 
  
