@@ -292,9 +292,17 @@ button{font-family:inherit}
   row-gap:14px;
   align-items:start;
 }
-.hero-eyebrow{grid-column:1; grid-row:1;}
+.hero-eyebrow{
+  grid-column:1;
+  grid-row:1;
+  position:relative;
+  z-index:30;
+}
 .hero-grid > .hero-copy{grid-column:1; grid-row:2; max-width:720px;}
 .hero-proof{
+  position:relative;
+  z-index:5;
+  /* keep the rest of your existing properties */
   grid-column:2;
   grid-row:2;
   align-self:stretch;
@@ -421,7 +429,7 @@ button{font-family:inherit}
   transform:translateY(6px);
   pointer-events:none;
   transition:opacity .15s ease, transform .15s ease;
-  z-index:10;
+  z-index:80;
 }
 .tip:hover .tooltip,
 .tip:focus-within .tooltip{
