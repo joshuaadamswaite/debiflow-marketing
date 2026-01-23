@@ -902,16 +902,29 @@ button{font-family:inherit}
   outline-offset:4px;
 }
 
+/* How it works (accordion) */
 .how-dot{
   width:12px;
   height:12px;
   border-radius:999px;
-  background:rgba(15,118,110,0.94);
-  box-shadow:0 0 0 6px rgba(15,118,110,0.12);
+
+  /* closed state (greyed out) */
+  background:rgba(30,45,69,0.32);
+  box-shadow:0 0 0 6px rgba(30,45,69,0.10);
+
   margin-top:6px;
   margin-left:20px;
   display:block;
+
+  transition:background .14s ease, box-shadow .14s ease;
 }
+
+/* open state (turns green) */
+.how-step[open] .how-dot{
+  background:rgba(15,118,110,0.94);
+  box-shadow:0 0 0 6px rgba(15,118,110,0.12);
+}
+
 
 .how-title{
   font-weight:950;
