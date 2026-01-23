@@ -23,7 +23,6 @@
 html{scroll-behavior:smooth}
 body{
   margin:0;
-  padding:0;
   background:
     radial-gradient(1100px 520px at 15% 0%, rgba(15,118,110,0.10), transparent 62%),
     radial-gradient(1100px 520px at 85% 0%, rgba(12,18,31,0.10), transparent 62%),
@@ -181,7 +180,6 @@ button{font-family:inherit}
   justify-content:space-between;
   gap:12px;
   height:72px;
-  padding:0;
 }
 .brand{
   display:flex;
@@ -329,9 +327,7 @@ button{font-family:inherit}
 }
 
 .eyebrow{
-  display:flex;
-  align-items:center;
-  gap:10px;
+  display:block;
   font-weight:800;
   color:rgba(30,45,69,0.86);
   font-size:0.95rem;
@@ -1377,7 +1373,7 @@ details[open] .how-body{
   gap:12px;
   flex-wrap:wrap;
   align-items:center;
-  justify-content:flex-start;
+  justify-content:flex-end;
 }
 
 @media (max-width: 900px){
