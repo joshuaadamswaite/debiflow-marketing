@@ -1084,6 +1084,25 @@ details[open] .how-body{
   width:2px;
   background:linear-gradient(180deg, rgba(15,118,110,0.55), rgba(244,245,247,0.10));
 }
+
+/* Make the right rail box taller upward, while keeping its bottom aligned */
+#cycle .rail{
+  --rail-extend: 88px;               /* increase/decrease until top hits the header */
+  margin-top: calc(-1 * var(--rail-extend));
+  padding-top: calc(10px + var(--rail-extend));
+}
+
+/* Keep the vertical line aligned with the dots after the box grows upward */
+#cycle .rail-line{
+  top: calc(18px + var(--rail-extend));
+}
+
+/* Mobile: remove the upward extension (because the layout stacks) */
+@media (max-width: 980px){
+  #cycle .rail{ --rail-extend: 0px; }
+}
+
+
 .rail-node{
   display:flex;
   gap:10px;
