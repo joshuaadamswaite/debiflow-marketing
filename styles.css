@@ -1030,7 +1030,7 @@ details[open] .how-body{
   display:grid;
   grid-template-columns:1fr 340px;
   gap:18px;
-  align-items:start;
+  align-items:stretch;
 }
 .cycle-tabs{
   display:flex;
@@ -1060,15 +1060,6 @@ details[open] .how-body{
   display:grid;
   gap:14px;
 }
-/* Lift the right rail so its card starts inline with the band headline */
-#cycle .cycle-rail{
-  margin-top:-84px; /* tweak this number until perfect (try -70 to -110) */
-}
-
-/* Reset on mobile where layout stacks */
-@media (max-width: 980px){
-  #cycle .cycle-rail{ margin-top:0; }
-}
 .rail{
   position:relative;
   padding:10px 10px 10px 10px;
@@ -1087,8 +1078,9 @@ details[open] .how-body{
 
 /* Make the right rail box taller upward, while keeping its bottom aligned */
 #cycle .rail{
-  --rail-extend: 88px;               /* increase/decrease until top hits the header */
-  margin-top: calc(-1 * var(--rail-extend));
+  --rail-extend: 88px; /* adjust this until the TOP hits the heading */
+  height: calc(100% + var(--rail-extend));   /* keeps the bottom aligned with bullets */
+  margin-top: calc(-1 * var(--rail-extend)); /* grows upward */
   padding-top: calc(10px + var(--rail-extend));
 }
 
