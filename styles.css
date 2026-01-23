@@ -22,9 +22,9 @@
 *{box-sizing:border-box}
 html{
   scroll-behavior:smooth;
-  scroll-padding-top:88px; /* 72px topbar + ~16px breathing room */
+  scroll-padding-top:72px; /* 72px topbar + ~16px breathing room */
 }
-section[id]{scroll-margin-top:88px;}
+section[id]{scroll-margin-top:72px;}
 body{
   margin:0;
   background:
