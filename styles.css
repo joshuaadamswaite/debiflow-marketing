@@ -189,7 +189,7 @@ button{font-family:inherit}
   min-height:44px; /* tap target without increasing visual height */
 }
 .brand-logo{
-  height:34px;
+  height:42px;
   width:auto;
   border-radius:999px;
 }
@@ -269,7 +269,7 @@ button{font-family:inherit}
 /* Hero */
 .hero{
   position:relative;
-  padding:58px 0 22px 0;
+  padding:34px 0 22px 0;
 }
 .hero-bg{
   position:absolute;
