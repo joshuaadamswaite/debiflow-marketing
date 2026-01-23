@@ -481,6 +481,25 @@ button{font-family:inherit}
   text-decoration:underline;
   text-underline-offset:2px;
 }
+/* MOBILE: keep hero tooltip on-screen */
+@media (max-width: 640px){
+  .hero .tooltip{
+    left:50vw;          /* centre to the viewport (not the ? icon) */
+    right:auto;
+    min-width:0;
+    width:min(92vw, 420px);
+    max-width:calc(100vw - 24px);
+    transform:translate(-50%, 6px); /* keep your slide-in animation */
+    max-height:70vh;
+    overflow:auto;
+  }
+
+  .hero .tip:hover .tooltip,
+  .hero .tip:focus-within .tooltip{
+    transform:translate(-50%, 0);
+  }
+}
+
 
 /* Proof band */
 .proof{
@@ -1038,7 +1057,7 @@ details[open] .how-body{
 }
 .rail-line{
   position:absolute;
-  left:20px;
+  left:22px;
   top:18px;
   bottom:18px;
   width:2px;
