@@ -1078,15 +1078,22 @@ details[open] .how-body{
 
 /* Make the right rail box taller upward, while keeping its bottom aligned */
 #cycle .rail{
-  --rail-extend: 88px; /* adjust this until the TOP hits the heading */
-  height: calc(100% + var(--rail-extend));   /* keeps the bottom aligned with bullets */
-  margin-top: calc(-1 * var(--rail-extend)); /* grows upward */
-  padding-top: calc(10px + var(--rail-extend));
+  --rail-extend: 88px;
+  height: calc(100% + var(--rail-extend));
+  margin-top: calc(-1 * var(--rail-extend));
+
+  /* NEW: let the content fill the full card height */
+  padding:24px 10px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
 }
+
 
 /* Keep the vertical line aligned with the dots after the box grows upward */
 #cycle .rail-line{
-  top: calc(18px + var(--rail-extend));
+  top:24px;
+  bottom:24px;
 }
 
 /* Mobile: remove the upward extension (because the layout stacks) */
@@ -1103,6 +1110,10 @@ details[open] .how-body{
   position:relative;
   z-index:1;
 }
+#cycle .rail-node{
+  padding:0 10px 0 8px; /* keep left alignment, remove extra vertical padding */
+}
+
 .rail-dot{
   width:10px;
   height:10px;
