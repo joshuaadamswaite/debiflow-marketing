@@ -832,9 +832,13 @@ button{font-family:inherit}
   outline-offset:3px;
 }
 
+/* Reserve enough space so the Pricing estimator doesn't jump
+   when Originator vs Investor content has different heights */
 .role-benefits{
-  min-height:288px;
+  min-height: 288px;   /* set this to the taller of the two panes */
+  display: flow-root;  /* avoids any margin-collapsing quirks */
 }
+
 
 .role-pane{
   display:none;
