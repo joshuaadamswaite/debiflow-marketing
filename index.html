@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>DebiFlow</title>
   <meta name="description" content="DebiFlow runs per-receivable funding. Originators raise funding as they grow. Investors get enforceable security, clear cashflows, and a repeatable settlement pack." />
-  <link rel="stylesheet" href="styles.css?v=3" />
+  <link rel="stylesheet" href="styles.css?v=4" />
 </head>
 
 <body>
@@ -191,7 +191,7 @@
                 </div>
                 <div class="pe-inputs">
                   <input id="peAop" type="range" min="0" max="50000000" step="500000" value="50000000" />
-                  <input id="peAopNumber" class="pe-number" type="number" min="0" max="190000000" step="1000" value="50000000" inputmode="numeric" />
+                  <input id="peAopNumber" class="pe-number" type="number" min="0" max="50000000" step="1000" value="50000000" inputmode="numeric" />
                 </div>
 
                 <div class="pe-row">
@@ -199,8 +199,8 @@
                   <div class="pe-value" id="peRepoDisplay">0.00%</div>
                 </div>
                 <div class="pe-inputs">
-                  <input id="peRepo" type="range" min="0" max="15" step="0.01" value="8.25" />
-                  <input id="peRepoNumber" class="pe-number" type="number" min="0" max="20" step="0.01" value="6.75" inputmode="decimal" />
+                  <input id="peRepo" type="range" min="0" max="15" step="0.01" value="6.75" />
+                  <input id="peRepoNumber" class="pe-number" type="number" min="0" max="15" step="0.01" value="6.75" inputmode="decimal" />
                 </div>
 
                 <div class="pe-row">
@@ -731,7 +731,14 @@
       if (!el.aop || !el.repo || !el.price) return;
 
       const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
-
+      function setRangeFill(r) {
+        if (!r) return;
+        const min = Number(r.min || 0);
+        const max = Number(r.max || 100);
+        const val = Number(r.value || 0);
+        const pct = (max > min) ? ((val - min) / (max - min)) * 100 : 0;
+        r.style.setProperty("--pct", pct + "%");
+      }
       const fmtZAR0 = new Intl.NumberFormat("en-ZA", {
         style: "currency",
         currency: "ZAR",
@@ -781,21 +788,26 @@
       }
 
       // range -> number
-      el.aop.addEventListener("input", () => { syncPair(el.aop, el.aopNumber); calc(); });
-      el.repo.addEventListener("input", () => { syncPair(el.repo, el.repoNumber); calc(); });
-      el.price.addEventListener("input", () => { syncPair(el.price, el.priceNumber); calc(); });
+      el.aop.addEventListener("input", () => { syncPair(el.aop, el.aopNumber); setRangeFill(el.aop); calc(); });
+      el.repo.addEventListener("input", () => { syncPair(el.repo, el.repoNumber); setRangeFill(el.repo); calc(); });
+      el.price.addEventListener("input", () => { syncPair(el.price, el.priceNumber); setRangeFill(el.price); calc(); });
 
       // number -> range (clamped)
       el.aopNumber.addEventListener("input", () => {
         el.aop.value = String(clamp(Number(el.aopNumber.value || 0), Number(el.aop.min), Number(el.aop.max)));
+        setRangeFill(el.aop);
         calc();
       });
+
       el.repoNumber.addEventListener("input", () => {
         el.repo.value = String(clamp(Number(el.repoNumber.value || 0), Number(el.repo.min), Number(el.repo.max)));
+        setRangeFill(el.repo);
         calc();
       });
+
       el.priceNumber.addEventListener("input", () => {
         el.price.value = String(clamp(Number(el.priceNumber.value || 0), Number(el.price.min), Number(el.price.max)));
+        setRangeFill(el.price);
         calc();
       });
 
@@ -803,6 +815,7 @@
       el.setPriceToRepo.addEventListener("click", () => {
         el.price.value = el.repo.value;
         el.priceNumber.value = el.repoNumber.value;
+        setRangeFill(el.price);
         calc();
       });
 
@@ -813,6 +826,11 @@
         el.repoNumber.value = String(defaults.repo);
         el.price.value = String(defaults.price);
         el.priceNumber.value = String(defaults.price);
+
+        setRangeFill(el.aop);
+        setRangeFill(el.repo);
+        setRangeFill(el.price);
+
         calc();
       });
 
@@ -820,6 +838,11 @@
       el.aopNumber.value = el.aop.value;
       el.repoNumber.value = el.repo.value;
       el.priceNumber.value = el.price.value;
+      
+      setRangeFill(el.aop);
+      setRangeFill(el.repo);
+      setRangeFill(el.price);
+
       calc();
     })();
 

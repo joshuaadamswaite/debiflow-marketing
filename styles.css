@@ -835,7 +835,7 @@ button{font-family:inherit}
 /* Reserve enough space so the Pricing estimator doesn't jump
    when Originator vs Investor content has different heights */
 .role-benefits{
-  min-height: 298px;   /* set this to the taller of the two panes */
+  min-height: 306px;   /* set this to the taller of the two panes */
   display: flow-root;  /* avoids any margin-collapsing quirks */
 }
 
@@ -1677,7 +1677,59 @@ details[open] .how-body{
 }
 .pe-inputs input[type="range"]{
   width:100%;
-  accent-color: var(--teal);
+  background:transparent;
+
+  /* Make Safari stop using the fully-native look */
+  -webkit-appearance:none;
+  appearance:none;
+
+  /* Give the control some vertical space for the thumb */
+  height:34px;
+
+  /* This gets set by JS per slider */
+  --pct: 0%;
+}
+
+/* Track (Safari/Chrome) */
+.pe-inputs input[type="range"]::-webkit-slider-runnable-track{
+  height:10px;
+  border-radius:999px;
+  background:
+    linear-gradient(var(--teal), var(--teal)) 0/var(--pct) 100% no-repeat,
+    rgba(12,18,31,0.22);
+}
+
+/* Thumb (Safari/Chrome) */
+.pe-inputs input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance:none;
+  appearance:none;
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  background:var(--teal);
+  border:3px solid #fff;
+  margin-top:-6px; /* centers thumb on 10px track */
+  box-shadow:0 10px 22px rgba(12,18,31,0.18);
+}
+
+/* Firefox support */
+.pe-inputs input[type="range"]::-moz-range-track{
+  height:10px;
+  border-radius:999px;
+  background:rgba(12,18,31,0.22);
+}
+.pe-inputs input[type="range"]::-moz-range-progress{
+  height:10px;
+  border-radius:999px;
+  background:var(--teal);
+}
+.pe-inputs input[type="range"]::-moz-range-thumb{
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  background:var(--teal);
+  border:3px solid #fff;
+  box-shadow:0 10px 22px rgba(12,18,31,0.18);
 }
 .pe-number{
   width:170px;
