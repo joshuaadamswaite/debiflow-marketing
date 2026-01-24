@@ -167,6 +167,77 @@
             </div>
           </article>
         </div>
+        <!-- Pricing estimator (inserted under Role benefits) -->
+        <div class="pricing-estimator reveal" id="pricingEstimator" aria-label="Pricing estimator">
+          <div class="panel pe-card">
+            <div class="pe-head">
+              <div>
+                <div class="pe-title">Pricing estimator</div>
+                <div class="pe-sub">Estimate monthly fees from AOP, repo, and price.</div>
+              </div>
+
+              <div class="pe-actions">
+                <button type="button" class="pe-btn" id="peSetPriceToRepo">Set price to repo</button>
+                <button type="button" class="pe-btn pe-btn-ghost" id="peReset">Reset</button>
+              </div>
+            </div>
+
+            <div class="pe-grid">
+              <!-- Left: Inputs -->
+              <div class="card pe-controls" role="group" aria-label="Pricing inputs">
+                <div class="pe-row">
+                  <label class="pe-label" for="peAop">AOP (Assets on platform)</label>
+                  <div class="pe-value" id="peAopDisplay">R0</div>
+                </div>
+                <div class="pe-inputs">
+                  <input id="peAop" type="range" min="0" max="190000000" step="500000" value="50000000" />
+                  <input id="peAopNumber" class="pe-number" type="number" min="0" max="190000000" step="1000" value="50000000" inputmode="numeric" />
+                </div>
+
+                <div class="pe-row">
+                  <label class="pe-label" for="peRepo">Repo (%)</label>
+                  <div class="pe-value" id="peRepoDisplay">0.00%</div>
+                </div>
+                <div class="pe-inputs">
+                  <input id="peRepo" type="range" min="0" max="20" step="0.01" value="8.25" />
+                  <input id="peRepoNumber" class="pe-number" type="number" min="0" max="20" step="0.01" value="8.25" inputmode="decimal" />
+                </div>
+
+                <div class="pe-row">
+                  <label class="pe-label" for="pePrice">Price (%)</label>
+                  <div class="pe-value" id="pePriceDisplay">0.00%</div>
+                </div>
+                <div class="pe-inputs">
+                  <input id="pePrice" type="range" min="0" max="40" step="0.01" value="10.00" />
+                  <input id="pePriceNumber" class="pe-number" type="number" min="0" max="40" step="0.01" value="10.00" inputmode="decimal" />
+                </div>
+
+                <div class="pe-pill" aria-live="polite">
+                  <span class="pe-dot" aria-hidden="true"></span>
+                  <span id="peMultiple">Price is 0.00× repo</span>
+                </div>
+
+                <div class="pe-footnote">
+                  Assumptions: 30.5 day month, 365 basis. Total platform fee = 2.00% p.a. of AOP.
+                </div>
+              </div>
+
+              <!-- Right: Outputs -->
+              <div class="pe-kpis" aria-label="Pricing outputs">
+                <div class="card pe-kpi">
+                  <div class="pe-kpi-label">Investor expected cost per month</div>
+                  <div class="pe-kpi-value" id="peInvMoM">R0</div>
+                </div>
+
+                <div class="card pe-kpi">
+                  <div class="pe-kpi-label">Originator expected cost per month</div>
+                  <div class="pe-kpi-value" id="peOrgMoM">R0</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -629,6 +700,128 @@
       const defaultRole = (roleSelect.querySelector(".role-row.is-selected")?.getAttribute("data-role")) || "originator";
       setRole(defaultRole);
     }
+
+
+
+    // Pricing estimator (Audience)
+    (function () {
+      const DAYS_IN_MONTH = 30.5;
+      const DAY_COUNT_BASIS = 365;
+
+      const el = {
+        aop: document.getElementById("peAop"),
+        aopNumber: document.getElementById("peAopNumber"),
+        repo: document.getElementById("peRepo"),
+        repoNumber: document.getElementById("peRepoNumber"),
+        price: document.getElementById("pePrice"),
+        priceNumber: document.getElementById("pePriceNumber"),
+
+        aopDisplay: document.getElementById("peAopDisplay"),
+        repoDisplay: document.getElementById("peRepoDisplay"),
+        priceDisplay: document.getElementById("pePriceDisplay"),
+        multiple: document.getElementById("peMultiple"),
+
+        invMoM: document.getElementById("peInvMoM"),
+        orgMoM: document.getElementById("peOrgMoM"),
+
+        setPriceToRepo: document.getElementById("peSetPriceToRepo"),
+        reset: document.getElementById("peReset")
+      };
+
+      if (!el.aop || !el.repo || !el.price) return;
+
+      const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
+
+      const fmtZAR0 = new Intl.NumberFormat("en-ZA", {
+        style: "currency",
+        currency: "ZAR",
+        maximumFractionDigits: 0
+      });
+
+      const defaults = {
+        aop: Number(el.aop.value || 0),
+        repo: Number(el.repo.value || 0),
+        price: Number(el.price.value || 0)
+      };
+
+      function syncPair(src, dst) {
+        dst.value = src.value;
+      }
+
+      function calc() {
+        const AOP = Number(el.aopNumber.value || 0);
+        const repoPct = Number(el.repoNumber.value || 0);
+        const pricePct = Number(el.priceNumber.value || 0);
+
+        const repo = repoPct / 100;
+        const price = pricePct / 100;
+
+        // k = clamp(Price / Repo, 0, 2)
+        let k = 0;
+        if (repo > 0) k = clamp(price / repo, 0, 2);
+
+        // Investor fee rate (annual) = 1.00% * k
+        // Originator fee rate (annual) = 2.00% - Investor rate
+        const investorRate = 0.01 * k;
+        const originatorRate = 0.02 - investorRate;
+
+        // Expected monthly cost = AOP * rate * (30.5/365)
+        const invMoM = AOP * investorRate * (DAYS_IN_MONTH / DAY_COUNT_BASIS);
+        const orgMoM = AOP * originatorRate * (DAYS_IN_MONTH / DAY_COUNT_BASIS);
+
+        el.aopDisplay.textContent = fmtZAR0.format(AOP);
+        el.repoDisplay.textContent = repoPct.toFixed(2) + "%";
+        el.priceDisplay.textContent = pricePct.toFixed(2) + "%";
+        el.multiple.textContent = (repo > 0)
+          ? `Price is ${k.toFixed(2)}× repo`
+          : "Repo is 0.00%";
+
+        el.invMoM.textContent = fmtZAR0.format(invMoM);
+        el.orgMoM.textContent = fmtZAR0.format(orgMoM);
+      }
+
+      // range -> number
+      el.aop.addEventListener("input", () => { syncPair(el.aop, el.aopNumber); calc(); });
+      el.repo.addEventListener("input", () => { syncPair(el.repo, el.repoNumber); calc(); });
+      el.price.addEventListener("input", () => { syncPair(el.price, el.priceNumber); calc(); });
+
+      // number -> range (clamped)
+      el.aopNumber.addEventListener("input", () => {
+        el.aop.value = String(clamp(Number(el.aopNumber.value || 0), Number(el.aop.min), Number(el.aop.max)));
+        calc();
+      });
+      el.repoNumber.addEventListener("input", () => {
+        el.repo.value = String(clamp(Number(el.repoNumber.value || 0), Number(el.repo.min), Number(el.repo.max)));
+        calc();
+      });
+      el.priceNumber.addEventListener("input", () => {
+        el.price.value = String(clamp(Number(el.priceNumber.value || 0), Number(el.price.min), Number(el.price.max)));
+        calc();
+      });
+
+      // Buttons
+      el.setPriceToRepo.addEventListener("click", () => {
+        el.price.value = el.repo.value;
+        el.priceNumber.value = el.repoNumber.value;
+        calc();
+      });
+
+      el.reset.addEventListener("click", () => {
+        el.aop.value = String(defaults.aop);
+        el.aopNumber.value = String(defaults.aop);
+        el.repo.value = String(defaults.repo);
+        el.repoNumber.value = String(defaults.repo);
+        el.price.value = String(defaults.price);
+        el.priceNumber.value = String(defaults.price);
+        calc();
+      });
+
+      // Init
+      el.aopNumber.value = el.aop.value;
+      el.repoNumber.value = el.repo.value;
+      el.priceNumber.value = el.price.value;
+      calc();
+    })();
 
     // How it works accordion (Option A: single-open)
     const how = document.getElementById("how");
