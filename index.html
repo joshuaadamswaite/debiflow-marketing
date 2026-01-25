@@ -173,12 +173,7 @@
             <div class="pe-head">
               <div>
                 <div class="pe-title">Pricing estimator</div>
-                <div class="pe-sub">Estimate monthly fees from AOP, repo, and price.</div>
-              </div>
-
-              <div class="pe-actions">
-                <button type="button" class="pe-btn" id="peSetPriceToRepo">Set price to repo</button>
-                <button type="button" class="pe-btn pe-btn-ghost" id="peReset">Reset</button>
+                <div class="pe-sub">Platform fee of 2%, split based on pricing relative to the prime lending rate.</div>
               </div>
             </div>
 
@@ -211,12 +206,6 @@
                   <input id="pePrice" type="range" min="0" max="40" step="0.01" value="10.00" />
                   <input id="pePriceNumber" class="pe-number" type="number" min="0" max="40" step="0.01" value="10.00" inputmode="decimal" />
                 </div>
-
-                <div class="pe-pill" aria-live="polite">
-                  <span class="pe-dot" aria-hidden="true"></span>
-                  <span id="peMultiple">Price is 0.00× repo</span>
-                </div>
-
                 <div class="pe-footnote">
                   Assumptions: 30.5 day month, 365 basis. Total platform fee = 2.00% p.a. of AOP.
                 </div>
@@ -226,11 +215,19 @@
               <div class="pe-kpis" aria-label="Pricing outputs">
                 <div class="card pe-kpi">
                   <div class="pe-kpi-label">Investor expected cost per month</div>
+                  <div class="pe-kpi-meta">
+                    <span class="pe-kpi-sub">Total return</span>
+                    <span class="pe-kpi-subval" id="peInvTotalReturn">R0</span>
+                  </div>
                   <div class="pe-kpi-value" id="peInvMoM">R0</div>
                 </div>
 
                 <div class="card pe-kpi">
                   <div class="pe-kpi-label">Originator expected cost per month</div>
+                  <div class="pe-kpi-meta">
+                    <span class="pe-kpi-sub">Total cost</span>
+                    <span class="pe-kpi-subval" id="peOrgTotalCost">R0</span>
+                  </div>
                   <div class="pe-kpi-value" id="peOrgMoM">R0</div>
                 </div>
               </div>
@@ -719,13 +716,11 @@
         aopDisplay: document.getElementById("peAopDisplay"),
         repoDisplay: document.getElementById("peRepoDisplay"),
         priceDisplay: document.getElementById("pePriceDisplay"),
-        multiple: document.getElementById("peMultiple"),
-
         invMoM: document.getElementById("peInvMoM"),
         orgMoM: document.getElementById("peOrgMoM"),
 
-        setPriceToRepo: document.getElementById("peSetPriceToRepo"),
-        reset: document.getElementById("peReset")
+        invTotalReturn: document.getElementById("peInvTotalReturn"),
+        orgTotalCost: document.getElementById("peOrgTotalCost"),
       };
 
       if (!el.aop || !el.repo || !el.price) return;
@@ -744,13 +739,6 @@
         currency: "ZAR",
         maximumFractionDigits: 0
       });
-
-      const defaults = {
-        aop: Number(el.aop.value || 0),
-        repo: Number(el.repo.value || 0),
-        price: Number(el.price.value || 0)
-      };
-
       function syncPair(src, dst) {
         dst.value = src.value;
       }
@@ -776,13 +764,19 @@
         const invMoM = AOP * investorRate * (DAYS_IN_MONTH / DAY_COUNT_BASIS);
         const orgMoM = AOP * originatorRate * (DAYS_IN_MONTH / DAY_COUNT_BASIS);
 
+        // Gross pricing amount per month = AOP * Price(%) * (30.5/365)
+        const grossPricingMoM = AOP * price * (DAYS_IN_MONTH / DAY_COUNT_BASIS);
+
+        // Total return / cost (monthly)
+        const invTotalReturn = grossPricingMoM - invMoM;
+        const orgTotalCost = grossPricingMoM + orgMoM;
+
         el.aopDisplay.textContent = fmtZAR0.format(AOP);
         el.repoDisplay.textContent = repoPct.toFixed(2) + "%";
         el.priceDisplay.textContent = pricePct.toFixed(2) + "%";
-        el.multiple.textContent = (repo > 0)
-          ? `Price is ${k.toFixed(2)}× repo`
-          : "Repo is 0.00%";
 
+        if (el.invTotalReturn) el.invTotalReturn.textContent = fmtZAR0.format(invTotalReturn);
+        if (el.orgTotalCost) el.orgTotalCost.textContent = fmtZAR0.format(orgTotalCost);
         el.invMoM.textContent = fmtZAR0.format(invMoM);
         el.orgMoM.textContent = fmtZAR0.format(orgMoM);
       }
@@ -808,29 +802,6 @@
       el.priceNumber.addEventListener("input", () => {
         el.price.value = String(clamp(Number(el.priceNumber.value || 0), Number(el.price.min), Number(el.price.max)));
         setRangeFill(el.price);
-        calc();
-      });
-
-      // Buttons
-      el.setPriceToRepo.addEventListener("click", () => {
-        el.price.value = el.repo.value;
-        el.priceNumber.value = el.repoNumber.value;
-        setRangeFill(el.price);
-        calc();
-      });
-
-      el.reset.addEventListener("click", () => {
-        el.aop.value = String(defaults.aop);
-        el.aopNumber.value = String(defaults.aop);
-        el.repo.value = String(defaults.repo);
-        el.repoNumber.value = String(defaults.repo);
-        el.price.value = String(defaults.price);
-        el.priceNumber.value = String(defaults.price);
-
-        setRangeFill(el.aop);
-        setRangeFill(el.repo);
-        setRangeFill(el.price);
-
         calc();
       });
 
