@@ -806,19 +806,25 @@
 
       // number -> range (clamped)
       el.aopNumber.addEventListener("input", () => {
-        el.aop.value = String(clamp(Number(el.aopNumber.value || 0), Number(el.aop.min), Number(el.aop.max)));
+        const v = clamp(Number(el.aopNumber.value || 0), Number(el.aop.min), Number(el.aop.max));
+        el.aop.value = String(v);
+        el.aopNumber.value = String(v);
         setRangeFill(el.aop);
         calc();
       });
 
       el.repoNumber.addEventListener("input", () => {
-        el.repo.value = String(clamp(Number(el.repoNumber.value || 0), Number(el.repo.min), Number(el.repo.max)));
+        const v = clamp(Number(el.repoNumber.value || 0), Number(el.repo.min), Number(el.repo.max));
+        el.repo.value = String(v);
+        el.repoNumber.value = String(v);
         setRangeFill(el.repo);
         calc();
       });
 
       el.priceNumber.addEventListener("input", () => {
-        el.price.value = String(clamp(Number(el.priceNumber.value || 0), Number(el.price.min), Number(el.price.max)));
+        const v = clamp(Number(el.priceNumber.value || 0), Number(el.price.min), Number(el.price.max));
+        el.price.value = String(v);
+        el.priceNumber.value = String(v);
         setRangeFill(el.price);
         calc();
       });
