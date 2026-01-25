@@ -1587,6 +1587,10 @@ details[open] .how-body{
 /* Pricing estimator (Audience) */
 .pricing-estimator{ margin-top:22px; }
 
+.pe-kpi-meta--italic{
+  font-style: italic;
+}
+
 /* Head */
 .pe-card{ overflow:hidden; }
 .pe-head{
