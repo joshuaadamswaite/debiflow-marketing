@@ -885,5 +885,25 @@
       });
     });
   </script>
+  <script>
+    (function () {
+      const wrap = document.querySelector(".timeline.how-accordion");
+      if (!wrap) return;
+
+      const steps = Array.from(wrap.querySelectorAll("details.how-step"));
+      if (!steps.length) return;
+
+      function sync() {
+        const anyOpen = steps.some(d => d.open);
+        wrap.classList.toggle("is-open", anyOpen);
+      }
+
+      // Initial state
+      sync();
+
+      // Update state whenever any step is toggled
+      steps.forEach(d => d.addEventListener("toggle", sync));
+    })();
+  </script>
 </body>
 </html> 

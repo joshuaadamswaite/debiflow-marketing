@@ -915,15 +915,19 @@ body.no-scroll{ overflow:hidden; }
 .timeline.how-accordion{
   padding:10px 18px;
 
-  /* FIX: cap height instead of forcing a tall fixed card */
-  max-height: clamp(320px, 52vh, 460px);
-
-  /* Scroll only when content exceeds the cap */
+  /* Default: collapse naturally when all items are closed */
+  height:auto;
+  overflow:visible;
+}
+/* When any accordion item is open, lock height and scroll inside */
+.timeline.how-accordion.is-open{
+  height: clamp(320px, 52vh, 460px);
   overflow-y: auto;
   overflow-x: hidden;
-
+  scrollbar-gutter: stable;
   -webkit-overflow-scrolling: touch;
 }
+
 
 
 .timeline.how-accordion:before{
@@ -1014,14 +1018,22 @@ details[open] .how-body{
 @media (max-width: 560px){
   .timeline.how-accordion{
     padding:10px 14px;
-    max-height: min(70vh, 520px);
+    height:auto;
+    overflow:visible;
+  }
+
+  .timeline.how-accordion.is-open{
+    height: min(70vh, 520px);
     overflow-y: auto;
     overflow-x: hidden;
+    scrollbar-gutter: stable;
     -webkit-overflow-scrolling: touch;
   }
+
   .how-summary{padding:14px 6px 14px 0}
   .how-body{padding:0 6px 14px 48px}
 }
+
 /* Band (mid-page reset) */
 .band{
   position:relative;
