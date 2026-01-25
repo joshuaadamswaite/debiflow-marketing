@@ -836,46 +836,6 @@
 
       calc();
     })();
-
-    // How it works accordion (Option A: single-open)
-    const how = document.getElementById("how");
-    if (how) {
-      const steps = Array.from(how.querySelectorAll("details.how-step"));
-      if (steps.length) {
-        const mqMobile = window.matchMedia("(max-width: 760px)");
-
-        function setDefaults() {
-          if (mqMobile.matches) {
-            steps.forEach(d => d.removeAttribute("open"));
-          } else {
-            steps.forEach((d, i) => {
-              if (i === 0) d.setAttribute("open", "");
-              else d.removeAttribute("open");
-            });
-          }
-        }
-
-        setDefaults();
-
-        // Keep defaults consistent if viewport changes
-        const mqHandler = () => setDefaults();
-        if (typeof mqMobile.addEventListener === "function") {
-          mqMobile.addEventListener("change", mqHandler);
-        } else if (typeof mqMobile.addListener === "function") {
-          mqMobile.addListener(mqHandler);
-        }
-
-        // Ensure only one step is expanded at a time
-        steps.forEach(d => {
-          d.addEventListener("toggle", () => {
-            if (!d.open) return;
-            steps.forEach(other => {
-              if (other !== d) other.open = false;
-            });
-          });
-        });
-      }
-    }
     // Back to top: force scroll even if the URL hash is already #top (iOS/Safari quirk)
     document.querySelectorAll('a[href="#top"]').forEach(a => {
       a.addEventListener("click", (e) => {
@@ -899,9 +859,26 @@
         wrap.classList.toggle("is-open", anyOpen);
       }
 
-      // Start open (first item), so the section has content and no dead space
-      steps.forEach((d, i) => { d.open = (i === 0); });
-      updateWrap();
+      const mqMobile = window.matchMedia("(max-width: 760px)");
+
+      function setDefaults() {
+        if (mqMobile.matches) {
+          steps.forEach(d => (d.open = false));
+        } else {
+          steps.forEach((d, i) => (d.open = (i === 0)));
+        }
+        updateWrap();
+      }
+
+      // Initial state + keep in sync on resize
+      setDefaults();
+      const mqHandler = () => requestAnimationFrame(setDefaults);
+      if (typeof mqMobile.addEventListener === "function") {
+        mqMobile.addEventListener("change", mqHandler);
+      } else if (typeof mqMobile.addListener === "function") {
+        mqMobile.addListener(mqHandler);
+      }
+
 
       steps.forEach(d => {
         const summary = d.querySelector("summary");
