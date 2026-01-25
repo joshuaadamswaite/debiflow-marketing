@@ -1011,7 +1011,6 @@ details[open] .how-body{
   from{opacity:0; transform:translateY(6px)}
   to{opacity:1; transform:translateY(0)}
 }
-
 @media (max-width: 560px){
   .timeline.how-accordion{
     padding:10px 14px;
