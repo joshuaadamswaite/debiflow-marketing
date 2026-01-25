@@ -886,6 +886,7 @@
     });
   </script>
   <script>
+    // How it works accordion: single-open + no shrink/grow flicker
     (function () {
       const wrap = document.querySelector(".timeline.how-accordion");
       if (!wrap) return;
@@ -893,16 +894,51 @@
       const steps = Array.from(wrap.querySelectorAll("details.how-step"));
       if (!steps.length) return;
 
-      function sync() {
+      function updateWrap() {
         const anyOpen = steps.some(d => d.open);
         wrap.classList.toggle("is-open", anyOpen);
       }
 
-      // Initial state
-      sync();
+      // Start open (first item), so the section has content and no dead space
+      steps.forEach((d, i) => { d.open = (i === 0); });
+      updateWrap();
 
-      // Update state whenever any step is toggled
-      steps.forEach(d => d.addEventListener("toggle", sync));
+      steps.forEach(d => {
+        const summary = d.querySelector("summary");
+        if (!summary) return;
+
+        summary.addEventListener("click", (e) => {
+          // Allow links inside summary to work normally
+          if (e.target && e.target.closest("a")) return;
+
+          e.preventDefault();
+
+          // Freeze current height for 1 frame so the wrapper never collapses mid-swap
+          const h = wrap.getBoundingClientRect().height;
+          wrap.style.minHeight = h ? (h + "px") : "";
+
+          const willOpen = !d.open;
+
+          if (willOpen) {
+            // Force open-mode immediately (prevents flash collapse)
+            wrap.classList.add("is-open");
+
+            // Atomic swap: open clicked, close all others
+            steps.forEach(other => { other.open = (other === d); });
+          } else {
+            // Close clicked (may result in all closed)
+            d.open = false;
+          }
+
+          requestAnimationFrame(() => {
+            wrap.style.minHeight = "";
+            updateWrap();
+          });
+        });
+
+        // Safety: keep wrapper state synced if something else toggles a <details>
+        d.addEventListener("toggle", () => requestAnimationFrame(updateWrap));
+      });
     })();
   </script>
 </body>
