@@ -263,7 +263,7 @@ button{font-family:inherit}
   gap:10px;
   margin-top:4px;
 }
-.no-scroll{overflow:hidden}
+body.no-scroll{ overflow:hidden; }
 
 @media (max-width: 1040px){
   .nav{display:none}
@@ -1218,16 +1218,6 @@ details[open] .how-body{
 @media (max-width: 860px){
   .two-col{grid-template-columns:1fr}
 }
-.list .li{
-  padding:10px 10px;
-  border-radius:14px;
-  border:1px solid rgba(30,45,69,0.10);
-  background:rgba(244,245,247,0.60);
-  margin-bottom:10px;
-  color:rgba(30,45,69,0.78);
-  line-height:1.4;
-}
-
 
 /* Protections: nested accordion inside "See all protections" */
 #protections .prot-accordion{
