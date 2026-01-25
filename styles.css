@@ -914,7 +914,21 @@ body.no-scroll{ overflow:hidden; }
 /* How it works (accordion) */
 .timeline.how-accordion{
   padding:10px 18px;
+
+  /* NEW: lock the card height so expanding items does not grow the section */
+  height: clamp(420px, 60vh, 560px);
+
+  /* NEW: allow internal scrolling instead of expanding */
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  /* NEW: keep layout stable when scrollbar appears */
+  scrollbar-gutter: stable;
+
+  /* NEW: smooth scrolling on iOS */
+  -webkit-overflow-scrolling: touch;
 }
+
 .timeline.how-accordion:before{
   top:14px;
   bottom:14px;
@@ -1002,7 +1016,10 @@ details[open] .how-body{
 }
 
 @media (max-width: 560px){
-  .timeline.how-accordion{padding:10px 14px}
+  .timeline.how-accordion{
+    padding:10px 14px;
+    height: min(520px, 72vh);
+  }
   .how-summary{padding:14px 6px 14px 0}
   .how-body{padding:0 6px 14px 48px}
 }
