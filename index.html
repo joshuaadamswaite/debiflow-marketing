@@ -221,6 +221,10 @@
                     <span class="pe-kpi-sub">Total return per month</span>
                     <span class="pe-kpi-subval" id="peInvTotalReturn">R0</span>
                   </div>
+                  <div class="pe-kpi-meta pe-kpi-meta--italic">
+                    <span class="pe-kpi-sub">Annualised rate of return %</span>
+                    <span class="pe-kpi-subval" id="peInvAnnualisedReturn">0.00%</span>
+                  </div>
                 </div>
                 <div class="card pe-kpi">
                   <div class="pe-kpi-label">Originator expected platform fee per month</div>
@@ -230,6 +234,10 @@
                   <div class="pe-kpi-meta pe-kpi-meta--italic">
                     <span class="pe-kpi-sub">Total cost per month</span>
                     <span class="pe-kpi-subval" id="peOrgTotalCost">R0</span>
+                  </div>
+                  <div class="pe-kpi-meta pe-kpi-meta--italic">
+                    <span class="pe-kpi-sub">Annualised cost of funding %</span>
+                    <span class="pe-kpi-subval" id="peOrgAnnualisedCost">0.00%</span>
                   </div>
                 </div>
               </div>
@@ -723,6 +731,8 @@
 
         invTotalReturn: document.getElementById("peInvTotalReturn"),
         orgTotalCost: document.getElementById("peOrgTotalCost"),
+        invAnnualisedReturn: document.getElementById("peInvAnnualisedReturn"),
+        orgAnnualisedCost: document.getElementById("peOrgAnnualisedCost"),
       };
 
       if (!el.aop || !el.repo || !el.price) return;
@@ -772,6 +782,10 @@
         // Total return / cost (monthly)
         const invTotalReturn = grossPricingMoM - invMoM;
         const orgTotalCost = grossPricingMoM + orgMoM;
+        // Annualised % figures derived from the monthly ZAR amounts
+        const monthFrac = (DAYS_IN_MONTH / DAY_COUNT_BASIS);
+        const invAnnualisedPct = (AOP > 0 && monthFrac > 0) ? ((invTotalReturn / AOP) / monthFrac) * 100 : 0;
+        const orgAnnualisedPct = (AOP > 0 && monthFrac > 0) ? ((orgTotalCost / AOP) / monthFrac) * 100 : 0;
 
         el.aopDisplay.textContent = fmtZAR0.format(AOP);
         el.repoDisplay.textContent = repoPct.toFixed(2) + "%";
@@ -779,6 +793,8 @@
 
         if (el.invTotalReturn) el.invTotalReturn.textContent = fmtZAR0.format(invTotalReturn);
         if (el.orgTotalCost) el.orgTotalCost.textContent = fmtZAR0.format(orgTotalCost);
+        if (el.invAnnualisedReturn) el.invAnnualisedReturn.textContent = invAnnualisedPct.toFixed(2) + "%";
+        if (el.orgAnnualisedCost) el.orgAnnualisedCost.textContent = orgAnnualisedPct.toFixed(2) + "%";
         el.invMoM.textContent = fmtZAR0.format(invMoM);
         el.orgMoM.textContent = fmtZAR0.format(orgMoM);
       }
